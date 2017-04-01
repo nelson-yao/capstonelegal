@@ -4,7 +4,7 @@ import numpy as np
 class CNN(object):
     """
     convolutional neural net obejct for label classification
-    Word embeddings are trained as the convo net is trained
+    Use pre-trained GloVe embeddings
     """
     def __init__(
       self, sequence_length, num_classes, vocab_size,
@@ -24,11 +24,13 @@ class CNN(object):
         #with tf.device('/cpu:0'), tf.name_scope("embedding"):
         with tf.name_scope("embedding"):
             W = tf.Variable(
-                tf.random_uniform([vocab_size, embedding_size], -1.0, 1.0),
-                name="W")
+                tf.constant(0.0, shape=[vocab_size, embedding_size]),
+                name="Embedding_Weights", trainable=False)
+            self.embedding_placeholder=tf.placeholder(tf.float32, shape=[vocab_size, embedding_size])
+            self.embedding_init=W.assign(self.embedding_placeholder)
             self.embedded_chars = tf.nn.embedding_lookup(W, self.input_x)
             self.embedded_chars_expanded = tf.expand_dims(self.embedded_chars, -1)
-
+        
         # Convolution + maxpool layer give each filter
         pooled_outputs = []
         for i, filter_size in enumerate(filter_sizes):
@@ -47,20 +49,30 @@ class CNN(object):
                 # Relu
                 relu = tf.nn.relu(tf.nn.bias_add(conv, b), name="relu")
 
-                #  Standard maxpool
+                # Max pooling, works better
                 pooled = tf.nn.max_pool(
                     relu,
                     ksize=[1, sequence_length - filter_size + 1, 1, 1],
                     strides=[1, 1, 1, 1],
                     padding='VALID',
                     name="pool")
-                pooled_outputs.append(pooled)
+                
+                # Average pooling
+    
+#                 pooled = tf.nn.avg_pool(
+#                     relu,
+#                     ksize=[1, sequence_length - filter_size + 1, 1, 1],
+#                     strides=[1, 1, 1, 1],
+#                     padding='VALID',
+#                     name="pool")
+        
+#                 pooled_outputs.append(pooled)
 
 
         num_filters_total = num_filters * len(filter_sizes) 
         self.h_pool = tf.concat(pooled_outputs,3 )
         #features = tf.concat(1, [self.input_suprise, self.h_pool])
-        #Concatnate  earning suprise with  word embedding
+
         self.h_pool_flat = tf.reshape(self.h_pool, [-1, num_filters_total])
 
         # Dropout
@@ -80,13 +92,12 @@ class CNN(object):
             self.xw_out = tf.nn.xw_plus_b(self.h_drop, W, b, name="scores")
             self.predictions = tf.argmax(self.xw_out, 1, name="predictions")
 
-        # Loss Function
+
         with tf.name_scope("loss"):
             losses = tf.nn.softmax_cross_entropy_with_logits(logits=self.xw_out, labels=self.input_y)
             self.loss = tf.reduce_mean(losses) + l2_reg_lambda * l2_loss
 
 
-        # Calc Accuracy
         with tf.name_scope("accuracy"):
             correct_predictions = tf.equal(self.predictions, tf.argmax(self.input_y, 1))
             self.accuracy = tf.reduce_mean(tf.cast(correct_predictions, "float"), name="accuracy")
