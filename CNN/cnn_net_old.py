@@ -1,10 +1,10 @@
 import tensorflow as tf
 import numpy as np
 
+
 class CNN(object):
     """
-    convolutional neural net obejct for label classification
-    Word embeddings are trained as the convo net is trained
+    Convolution Neural Net with word embedding for Text Classification
     """
     def __init__(
       self, sequence_length, num_classes, vocab_size,
@@ -15,7 +15,7 @@ class CNN(object):
         self.input_y = tf.placeholder(tf.float32, [None, num_classes], name="input_y")
         self.dropout_keep_prob = tf.placeholder(tf.float32, name="dropout_keep_prob")
 
-        #self.input_suprise = tf.placeholder(tf.float32, [None, 1], name="input_surprise")
+        self.input_suprise = tf.placeholder(tf.float32, [None, 1], name="input_surprise")
 
         # L2 loss function
         l2_loss = tf.constant(0.0)
@@ -57,11 +57,11 @@ class CNN(object):
                 pooled_outputs.append(pooled)
 
 
-        num_filters_total = num_filters * len(filter_sizes) 
+        num_filters_total = num_filters * len(filter_sizes) + 1
         self.h_pool = tf.concat(pooled_outputs,3 )
         #features = tf.concat(1, [self.input_suprise, self.h_pool])
         #Concatnate  earning suprise with  word embedding
-        self.h_pool_flat = tf.reshape(self.h_pool, [-1, num_filters_total])
+        self.h_pool_flat = tf.concat([tf.reshape(self.h_pool, [-1, num_filters_total -1]), self.input_suprise],1 )
 
         # Dropout
         with tf.name_scope("dropout"):
