@@ -135,7 +135,7 @@ a:visited {
 
 p {
 	line-height: 26px;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 img {
@@ -411,7 +411,7 @@ h6 {
 		-webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
 		-moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
 		transition: background .5s ease-in-out, padding .5s ease-in-out;
-        background-color: #296B94;
+        /*background-color: #296B94;*/
 	}
 	.navbar-custom.top-nav-collapse {
 		background-color: rgba(255, 255, 255, 0.97);
@@ -494,7 +494,9 @@ h6 {
 }
 
 .profile-bg{
-	background: url("../images/profile/bg1.jpg") no-repeat fixed 50% 50%;
+	/*background: url("../images/profile/bg1.jpg") no-repeat fixed 50% 50%;*/
+	background: url("../images/keyboard.jpeg") no-repeat fixed 50% 50% ;
+
 	-webkit-background-size: cover;
 	background-size: cover;
 	position: relative;
@@ -515,14 +517,14 @@ h6 {
 
 .intro-caption {
 	padding: 180px 0px 170px;
-	width:60%;
+	width:80%;
 	text-align: center;
 	margin: 0 auto;
 }
 .intro-caption h1 {
 	font-size: 40px;
 	line-height: 50px;
-	color: #000;
+	color: #fff !important;
 	text-transform: capitalize;
 	font-weight: 300;
 	letter-spacing: 0px;
@@ -1290,7 +1292,8 @@ h6 {
 --------------------------------------------------------*/
 
 #common-intro.profile-bg.bg1{
-	background: url("../images/photo/bg1.jpg") no-repeat fixed 50% 50% ;
+	/*background: url("../images/photo/bg1.jpg") no-repeat fixed 50% 50% ;*/
+	background: url("../images/keyboard.jpeg") no-repeat fixed 50% 50% ;
 	-webkit-background-size: cover;
 	background-size: cover;
 	position: relative;
@@ -1307,13 +1310,13 @@ h6 {
 #section-photography{
 	padding-bottom: 0px;
 }
-.intro-caption h3{
-	color: #fff;
-	background: #34A1EF;
+.intro-caption h2{
+	color: #fff ;
+	background: #fff; /*#34A1EF;*/
 	display: inline-block;
 	text-transform: capitalize;
 	font-weight: 300;
-	padding: 0px 12px;
+	padding: 12px 12px;
 	margin: 5px 0px;
 }
 

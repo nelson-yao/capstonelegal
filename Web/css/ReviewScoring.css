@@ -401,7 +401,7 @@ div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBar
     padding-left: 15px;
     border-top: 1px dotted #333;
     position: relative;
-    width: 284px;
+    width: 299px;
     height: 27px;
     background-image: url("../images/score-bar-bg.png?v=3960");
     background-repeat: no-repeat;
@@ -614,7 +614,8 @@ div.mainContent div.scoringWidget table.scoringPane table.awardAndScore div.over
 
 div.mainContent div.scoringWidget table.scoringPane table.awardAndScore div.overallScore div.box div.score {
     font-size: 48px;
-    font-weight: bold
+    font-weight: bold;
+    padding: 10px 5px 5px 5px;
 }
 
 body.light div.mainContent div.scoringWidget {

@@ -5,6 +5,10 @@
 $( document ).ready(function() {
 
     $("#scoringWidget").hide();
+    $("#categoryExplaination").empty();
+    $("#sentences").empty();
+
+
 
 
 });
@@ -49,7 +53,9 @@ $("#analyze").click(function() {
 
                     $("div.labels").append("<div class=\"sclabel\">" + category +"</div>");
 
-                    var barText = "<div class=\"bar\"><div class=\"segments\">";
+                    var catId = category.replace(/\W/g,'').toLowerCase();
+
+                    var barText = "<div class=\"bar\" id=\"" + catId +"\"><div class=\"segments\">";
                     var barLength = Math.round( 280 * parseFloat(score));
                     //console.log(barLength + "px");
 
@@ -63,6 +69,76 @@ $("#analyze").click(function() {
             }
         });
 
+
+
+        $("div.bar").mouseenter(function () {
+            //Reset all div.bar styles
+            $("div.bar").css( {
+                "background-color":"#dddddd",
+                "border":"solid 0px red",
+                "border-bottom":"dotted 1px white"
+            });
+            $("#sentences").empty();
+
+
+            //Highlight current car
+            $(this).css( {
+                "cursor": "pointer",
+                "background-color":"white",
+                "border":"solid 1px red"
+            });
+
+            $("#categoryExplaination").empty();
+
+            var text = "";
+            var id = $(this).attr("id");
+
+            for(var i=0; i<10;i++){
+                text +=  id + "---";
+            }
+
+            $("#categoryExplaination").append(text);
+
+            $("div.bar").mouseleave(function () {
+                $(this).css( {
+                    "cursor": "pointer",
+                    "background-color":"#dddddd",
+                    "border":"solid 0px red",
+                    "border-bottom":"dotted 1px white"
+                });
+
+                $("#categoryExplaination").empty();
+                $("#sentences").empty();
+
+            });
+
+
+        });
+
+
+
+
+        $("div.bar").click(function(){
+
+            var id = $(this).attr("id");
+
+            $("#sentences").empty();
+            var text = "<ul>";
+
+            for(var i=0; i<50;i++){
+                text +=  "<li>" + id + "</li>";
+            }
+
+            text += "</ul>";
+
+            $("#sentences").append(text);
+
+            $("div.bar").off("mouseleave");
+
+        });
+
     });
 
 });
+
+
