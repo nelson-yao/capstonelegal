@@ -1,0 +1,415 @@
+[
+  {
+    "score": "B",
+    "site": "tinyprints",
+    "categories": [
+      {
+        "category": "First Party Collection/Use",
+        "score": 0.4423076923076923,
+        "bad": [
+          "Personal information is any information about you that is personally identifiable, such as your name, address, email address or phone number, Facebook Connect sign-in information (if applicable), and any other information that is not otherwise publicly available.",
+          "No personally identifiable information is collected in this process.",
+          "They do not know the name, address, email address, phone number or any personally identifiable information about the user."
+        ],
+        "good": [],
+        "neutral": [
+          "We collect personal information when you register with any of our family of brands via our websites, mobile sites or mobile applications (collectively, our \"Sites and Apps\") and when you use any of our products or services.",
+          "In addition, if you send email invitations to friends and family to allow them to view your pictures or saved projects, or if you invite them to participate in Shutterfly Share Sites, those email addresses are personal information.",
+          "We or our third party service providers may also collect information relating to your devices, including your device model, operating system, browser type, unique device identifier, IP address, mobile phone number, mobile network carrier, location, and event information (such as application installations).",
+          "If you order products or pay for services, we will need your shipping address, billing name and address, as well as your credit card number and expiration date.",
+          "Cookies and Similar Technologies",
+          "We use cookies, pixel tags, and/or other similar technologies to collect visitor information.",
+          "Cookies, for example, are alphanumeric identifiers that we transfer to your computer's hard drive through your web browser.",
+          "They make it possible for us to store the contents of your shopping cart until you are ready to check out, recognize your browser when you visit and provide you with information about products that interest you.",
+          "By doing this, we can personalize your return visits and save you time during checkout.",
+          "They may also use information about your visits to our Sites and Apps and other sites and mobile applications to target ads for products and services.",
+          "For instance, they may collect web log data from you (such as IP address and information about your browser or operating system) or place or recognize a unique cookie on your browser to enable you to receive customized ads.",
+          "Through this process, demographic or other interest data may be associated with your browser or device in a non-personally identifiable manner.",
+          "We use your information for the following general purposes: to fulfill your requests for products and services, administrative purposes, to improve our services, to customize the advertising and content you see, to contact you, and for internal business purposes.",
+          "You are able to send an email invitation to your selected recipients, and then to allow them to view, save, or purchase products from your pictures.",
+          "If you use one of our referral programs to refer any of our family of brands to your friends and family, we will use their email addresses to send your invitation.",
+          "If you send Treat Digital Cards to friends and family, we will use their email addresses to send your cards.",
+          "We may send you email reminders of the personalized dates you have entered in this calendar.",
+          "We use anonymous information, such as that pertaining to web or mobile pages you have viewed, in order to analyze trends, track user's movements, provide a better user experience and gather broad demographic information for aggregate use.",
+          "We may also combine personal information with publicly available information and information we receive from or cross-reference with our partners.",
+          "These companies may use your personal information to enhance and personalize your shopping experience with us, to communicate with you about products and events that may be of interest to you and for other promotional purposes.",
+          "Information sharing allows us to introduce new resources based on your interests and needs.",
+          "The information we collect from these surveys, promotions, contests and sweepstakes may be matched with individual customer accounts and used by our family of brands to improve your overall customer experience, and may be shared with select third parties\n\nIf you log in through Facebook Connect, information you provide to us may be shared with Facebook.",
+          "When contacting us, please clearly state your request, including your name, mailing address, email address and phone number."
+        ]
+      },
+      {
+        "category": "Data Retention",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "Do Not Track",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Access, Edit and Deletion",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Choice/Control",
+        "score": 1.0,
+        "bad": [],
+        "good": [
+          "The NAI (Network Advertising Initiative) allows for the central opting out of all of its members' cookies from a single opt-out page.",
+          "If you delete your cookies, use a different browser or buy a new computer, you will need to renew your opt-out choice.",
+          "If you do not want us to share your information, please contact us through the Contact Us page of any of our brands, and we will remove your name from lists we share with other companies as soon as reasonably practicable.",
+          "You can opt in or out of receiving future communications from us about special offers and new product information, you can unsubscribe by following instructions contained in the messages you receive, or you can change your marketing preferences by contacting us through the Contact Us page of any of our brands."
+        ],
+        "neutral": []
+      },
+      {
+        "category": "Data Security",
+        "score": 0.5,
+        "bad": [],
+        "good": [],
+        "neutral": [
+          "We use a secure server (SSL) to encrypt your personal financial information.",
+          "We use other physical, electronic and procedural safeguards to protect the security and confidentiality of the information we have collected, and to prevent unauthorized access to or disclosure of your information."
+        ]
+      }
+    ]
+  },
+  {
+    "score": "B",
+    "site": "naturallycurly",
+    "categories": [
+      {
+        "category": "First Party Collection/Use",
+        "score": 0.5,
+        "bad": [],
+        "good": [],
+        "neutral": [
+          "At the time you register on our site or you make a purchase request or agree to participate in a promotion, we collect and store your name, address, credit card numbers and other personally identifying information.",
+          "We also use this information to customize your experience using our Website.",
+          "In addition, we automatically gather general statistical information about our Website and visitors, such as IP addresses, browsers, pages viewed, number of visitors, goods and services purchased, etc., but in doing so we do not reference you by individual name, e-mail address, home address, or telephone number.",
+          "We use this data in the aggregate to determine how much our customers use parts of our site so we can improve our site.",
+          "A cookie is a small amount of data that is sent to your browser from a web server and stored on your computer's hard drive.",
+          "Generally, we use cookies to remind us who you are and enable us to access your account information so you do not have to re-enter it; gather statistical information about usage by registered or unregistered users, research visiting patterns, and help target advertisements based on user interests; assist our retail partners track visits and process orders; and track progress and participation in promotions.",
+          "By changing your preferences, you can accept all cookies, you can be notified when a cookie is set, or you can reject all cookies.",
+          "If you do so and cookies are disabled, you may be required to re-enter your information more often and certain features of our site may be unavailable.",
+          "We use your personally identifying information to improve our marketing and promotional efforts, to statistically analyze site usage, to improve our content and product offerings and to customize our site's content, layout, and services.",
+          "We may ask you to provide us voluntarily with additional information regarding your personal or business interests, experience or requests which may use to customize our service for you.",
+          "If you sign up for our e-mail newsletter, we use your e-mail address to contact you regarding administrative notices, new product offerings and communications relevant to your use of the site.",
+          "We will not send you promotions or announcements unless you give us permission to do so.",
+          "If you place a request for products or services, we use information to ship your order.",
+          "At times, we may review status or activity of multiple users to do so.",
+          "We use your IP address to help diagnose problems with our server, to manage our Website and to enhance our site based on the usage pattern data we receive."
+        ]
+      },
+      {
+        "category": "Data Retention",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "Do Not Track",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Access, Edit and Deletion",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Choice/Control",
+        "score": 1.0,
+        "bad": [],
+        "good": [
+          "By changing your preferences, you can accept all cookies, you can be notified when a cookie is set, or you can reject all cookies.",
+          "You can opt out of receiving this information by clicking on the link you received in your confirmation email.",
+          "If a child has provided us with personally identifying information without parental or guardian consent, the parent or guardian should contact us to remove the information and opt out of promotional opportunities."
+        ],
+        "neutral": []
+      },
+      {
+        "category": "Data Security",
+        "score": 0.5833333333333334,
+        "bad": [],
+        "good": [
+          "Remember to sign out of your account and close your browser window when you have finished your session."
+        ],
+        "neutral": [
+          "We employ reasonable and current security methods to prevent unauthorized access, maintain data accuracy, and ensure correct use of information.",
+          "Your account information and profile are password-protected.",
+          "We recommend that you do not divulge your password to anyone.",
+          "No data transmission over the Internet or any wireless network can be guaranteed to be perfectly secure.",
+          "As a result, while we try to protect your personal information, we cannot ensure or guarantee the security of any information you transmit to us, and you do so at your own risk."
+        ]
+      }
+    ]
+  },
+  {
+    "score": "C",
+    "site": "planetminecraft",
+    "categories": [
+      {
+        "category": "First Party Collection/Use",
+        "score": 0.5,
+        "bad": [],
+        "good": [],
+        "neutral": [
+          "We use IP addresses to analyze trends, administer the site, track user's movement, and gather broad demographic information for aggregate use.",
+          "IP addresses are not linked to personally identifiable information.",
+          "Planet Minecraft will never, under any circumstances give away or display your IP address to third parties."
+        ]
+      },
+      {
+        "category": "Data Retention",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "Do Not Track",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Access, Edit and Deletion",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Choice/Control",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "Data Security",
+        "score": 0.5,
+        "bad": [],
+        "good": [],
+        "neutral": [
+          "Planet Minecraft : Privacy Policy\nWe here at Planet Minecraft greatly respect your privacy and we hope that our users feel that the information they share with us is 100% secure and private.",
+          "The Planet Minecraft staff will NEVER ask for your passÏword.",
+          "If someone does ask for your password or other info, please immediately notify us."
+        ]
+      }
+    ]
+  },
+  {
+    "score": "B",
+    "site": "metric-conversions.org",
+    "categories": [
+      {
+        "category": "First Party Collection/Use",
+        "score": 0.25,
+        "bad": [
+          "The information in the log files include your IP (internet protocol) address, your ISP (internet service provider, such as AOL or Shaw Cable), the browser you used to visit our site (such as Internet Explorer or Firefox), the time you visited our site and which pages you visited throughout our site.",
+          "Some of these advertisers may use technology such as cookies and web beacons when they advertise on our site, which will also send these advertisers (such as Google through the Google AdSense program) information including your IP address, your ISP , the browser you used to visit our site, and in some cases, whether you have Flash installed."
+        ],
+        "good": [],
+        "neutral": [
+          "Here is information on what types of personal information we receive and collect when you use visit conversion-metric.org, and how we safeguard your information.",
+          "We do use cookies to store information, such as your personal preferences when you visit our site."
+        ]
+      },
+      {
+        "category": "Data Retention",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "Do Not Track",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Access, Edit and Deletion",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Choice/Control",
+        "score": 1.0,
+        "bad": [],
+        "good": [
+          "You can chose to disable or selectively turn off our cookies or third-party cookies in your browser settings, or by managing preferences in programs such as Norton Internet Security."
+        ],
+        "neutral": []
+      },
+      {
+        "category": "Data Security",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      }
+    ]
+  },
+  {
+    "score": "B",
+    "site": "realgm",
+    "categories": [
+      {
+        "category": "First Party Collection/Use",
+        "score": 0.4423076923076923,
+        "bad": [
+          "We consider the following to be personally identifiable information: first and last name, e-mail address, street address, zip code, phone number, and credit card number.",
+          "We use third-party advertising companies to serve ads when you visit our Web site.",
+          "The non-personally identifiable information we track with cookies is anonymous and is not used to identify, or lead us back to, any particular visitor."
+        ],
+        "good": [],
+        "neutral": [
+          "Information You Provide to Us",
+          "In order to do that we sometimes need to ask you for information so that we can provide the kind of content you want, when you want it.",
+          "We may ask you to register or provide personal information when you visit certain areas of RealGM.com, enter a contest, play games, complete surveys, subscribe to a service or to a newsletter, submit content, or ask us for information.",
+          "We only collect personally identifiable information from you when you voluntarily submit it.",
+          "If you choose not to register or provide personal information, you can still use our site but you may not have access to certain areas and/or types of information.",
+          "Depending on the particular RealGM.com site with which you register, we may ask for your name, age, address and/or zip code, e-mail address, name of school or district, and/or grade level.",
+          "If you are under 18 years of age, we will also ask you to provide your parent's or guardian's e-mail address.",
+          "We use the personal and demographic information you provide us to tailor the content, services and advertising on RealGM.com to meet your current and future needs.",
+          "Use of this data allows us to customize your experience by showing you content according to your preferences.",
+          "We will NOT knowingly ask a child or teen to divulge more information than is needed to participate in any activity, game, or service.",
+          "Certain areas and activities within RealGM.com ask visitors under the age of 18 to provide personal information such as their name, date of birth, e-mail address or school name.",
+          "We only ask for the information that is necessary to participate in the particular activity.",
+          "\"Cookies\" are small text files written to your computer.",
+          "They make our site easier for you to use because they save your preferences while you are at our sites (although we do not save passwords in cookies).",
+          "Cookies also help us know which areas are your favorites, which need a bit of improvement, and what technologies and Internet services our visitors are using.",
+          "Knowing this information helps us continually improve the online experience for our visitors and members.",
+          "Web servers \u2013 the big computers that \"serve up\" Web pages \u2013 automatically identify your computer by its IP address.",
+          "RealGM.com collects IP addresses for system administration; to report aggregate information to our advertisers, sponsors, and partners; and to audit the use of our site and to ensure compliance with the Terms of Use (and to address violations of the Terms of Use).",
+          "When visitors request pages from RealGM.com sites, our servers log the guests' IP addresses.",
+          "We normally do not link IP addresses to anything personally identifiable.",
+          "We can and will use IP addresses (and other personal information, but only to the extent necessary) to identify a visitor when we feel it is necessary to enforce compliance with our rules or our Terms of Use, or to protect our service, site, customers, or other individuals.",
+          "Some features within RealGM.com, such as certain message boards, may display IP addresses along with the message-poster's visitor name and message.",
+          "These other sites may send you their own cookies, collect data, or solicit personal information."
+        ]
+      },
+      {
+        "category": "Data Retention",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "Do Not Track",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Access, Edit and Deletion",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Choice/Control",
+        "score": 1.0,
+        "bad": [],
+        "good": [
+          "RealGM.com gives you the opportunity to opt-out of having your personal information used for purposes not directly related to your use of the RealGM.com sites.",
+          "Visitors to RealGM.com may have the option of disabling cookies via their browser preferences (most browsers are initially set up to accept cookies)."
+        ],
+        "neutral": []
+      },
+      {
+        "category": "Data Security",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      }
+    ]
+  },
+  {
+    "score": "B",
+    "site": "fanfiction.net",
+    "categories": [
+      {
+        "category": "First Party Collection/Use",
+        "score": 0.35714285714285715,
+        "bad": [
+          "This log information may include but not limited to your Internet Protocol address, browser type, browser language, the date and time of your query and one or more cookies that may uniquely identify your browser.",
+          "A \"cookie\" is a small file containing a string of characters that is sent to your computer when you visit a website."
+        ],
+        "good": [],
+        "neutral": [
+          "FanFiction.Net may collect limited non-personally identifying information your browser makes available whenever you visit a website.",
+          "We use this information to operate, develop and improve our services.",
+          "FanFiction.Net asks you for some personal information in order to create an account (typically your name, email address and a password for your account) and we will use that information to provide the service.",
+          "We use cookies to improve the quality of our service and to better understand how people interact with us.",
+          "We restrict access to your personally identifying information to site staffs who need to know that information in order to operate, develop or improve our services."
+        ]
+      },
+      {
+        "category": "Data Retention",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "Do Not Track",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Access, Edit and Deletion",
+        "score": "Missing",
+        "bad": [],
+        "good": [],
+        "neutral": []
+      },
+      {
+        "category": "User Choice/Control",
+        "score": 1.0,
+        "bad": [],
+        "good": [
+          "Most browsers are initially set up to accept cookies."
+        ],
+        "neutral": []
+      },
+      {
+        "category": "Data Security",
+        "score": 0.5,
+        "bad": [],
+        "good": [],
+        "neutral": [
+          "We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data."
+        ]
+      }
+    ]
+  }
+
+]
