@@ -167,20 +167,35 @@
                             <li>International & Specific Audiences: practices that pertain only to a specific group of users (e.g., children, Europeans, or California residents). </li>
                             <li>Other: additional sub-labels for introductory or general text, contact information, and practices not covered by the other categories. </li>
                         </ol>
+                        <p>Each category also contains multiple subtopics. Annotators looked for snippets of texts in each documents that describe the website's practices regarding each of the topics, and characterized the practice with a label. </p>
+                        <p>Based on the text snippets and labels, each sentence in the documents is assigned a label regarding a data practice topic. If the sentence describes several data practices, the sentence will have multiple labels. For each label, we assign a score to indicate whether the data practice described by the label is good (helps protect the user’s privacy) bad (detrimental to user’s privacy), or neutral (simply describing some information). At the end, for each sentence we have the category of data practice the sentence is describing (maybe more than one) and the score(s) of the sentence with respect to that category. </p>
                     </div>
-                    
+
                     <div class="col-md-6">
-                        
+
                         <img src="images/Annotation.png" />
+                        <p> A screenshot of the tool used by CMU researchers to annotate privacy policy documents</p>
                         <p>Source : Wilson et al, 2016 </p>
                     </div>
 
                 </div>
                 <br>
 
+                <!--            Section about modeling -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h3>Modeling</h3>
+                            <div class="sec-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
-                        <p>RandomForest accuracy result. [NEED EDIT]</p>
+                        <h3>Sentence Selection using Random Forest </h3>
+                        <p>We developed two set of models. The first set consists of 10 independent random forest models, one for each data practice category. Each model is responsible for choosing sentences that are relevant to the corresponding data practice category. The second sets of models contain one convolutional neural network (CNN) model for each of the categories, each model takes sentences that are relevant to the category, and model the connection between the contents of the sentence and the score they were assigned.
+                        </p>
                     </div>
 
 
@@ -289,7 +304,9 @@
 
 
                     <div class="col-md-6">
-                        <p>CNN accuracy result. [NEED EDIT]</p>
+                        <h3>Sentence scoring using Convolutional Neural Network</h3>
+
+                        <p>Each input to the CNN model is a sentence, and each word in the sentence is converted to a pre-trained <a href="https://nlp.stanford.edu/projects/glove/">GloVe embedding</a> of 60 dimensions. Then three separate convolution filters with different window sizes move along the sentence one word at a time to gather information that are embedded in word orders and regions. The features generated from each convolution are put under max-pooling, concatenated, and sent into a feed-forward neural network with one hidden-layer and dropout units. We trained 10 CNN models, one for each data practice category. The size of the training data ranges from 6000 sentences to almost 10000 sentences for each category. 6 of these CNN models yielded satisfactory result on development dataset. </p>
                     </div>
 
                 </div>
