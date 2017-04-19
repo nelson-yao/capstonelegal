@@ -310,8 +310,22 @@
                     </div>
 
                 </div>
+                <br>
 
-
+                <!--            Section about model serving -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h2>Serving</h3>
+                            <div class="sec-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p>
+                        For each of the unlabeled privacy policy document, we calculate the scores for each of data practice categories. For each category, we first pick the relevant sentences from the documents using the corresponding random forest model. Using these sentences, we generate the scores for each sentence using the corresponding CNN model for that category. We then combined the scores from the relevant sentences to a generate summary score for each category. The scores from each category are then combined to generate a final letter grade that describe the entire document.
+                    </p>
+                </div>
             </div>
         </div>
         <!--  container end -->
