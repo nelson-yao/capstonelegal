@@ -12,3 +12,12 @@ li.neutral{
     color: black;
     margin-bottom: 15px;
 }
+
+td.accuracy{
+    text-align: right;
+}
+
+li.anno
+{
+    list-style-type: decimal;
+}

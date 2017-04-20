@@ -8,14 +8,16 @@ $(document).ready(function () {
     $("#categoryExplaination").empty();
     $("#sentences").empty();
 
-    $("#url").keypress(function(e){
-        if(e.which == 13){
+    $("#url").keypress(function (e) {
+        if (e.which == 13) {
             //prevent refreshing page when ENTER is pressed
             e.preventDefault();
             //Simulate click
             $('#analyze').click();
         }
     });
+
+    loadScore();
 
 });
 
@@ -27,9 +29,13 @@ $("#analyze").click(function () {
     $("#scoringWidget").hide();
     var url = $("#url").val().toLowerCase();
 
-    $.getJSON("http://localhost:8000/mini_scores.json", function (data) {
 
-        var sentenceList =  [];
+    var data = JSON.parse(LZString.decompress(localStorage.getItem("scoreDB")));
+
+    //$.getJSON("http://people.ischool.berkeley.edu/~jun.luo/capstone/All_scores.json", function (data) {
+    //$.getJSON("http://localhost:8000/All_scores.json", function (data) {
+
+        var sentenceList = [];
 
         $.each(data, function (key, val) {
             //console.log(key, val)
@@ -77,26 +83,25 @@ $("#analyze").click(function () {
                     $("div.bars").append(barText);
 
 
-                    for(var j=0;j<categories[i].bad.length; j++){
+                    for (var j = 0; j < categories[i].bad.length; j++) {
                         sentences += "<li class=\"red\">" + categories[i].bad[j] + "</li>";
-                        console.log(categories[i].bad[j]);
+                        //console.log(categories[i].bad[j]);
                     }
-                    for(var j=0;j<categories[i].good.length; j++){
+                    for (var j = 0; j < categories[i].good.length; j++) {
                         sentences += "<li class=\"green\">" + categories[i].good[j] + "</li>";
-                        console.log(categories[i].good[j]);
+                        //console.log(categories[i].good[j]);
                     }
-                    for(var j=0;j<categories[i].neutral.length; j++){
+                    for (var j = 0; j < categories[i].neutral.length; j++) {
                         sentences += "<li class=\"neutral\">" + categories[i].neutral[j] + "</li>";
-                        console.log(categories[i].neutral[j]);
+                        //console.log(categories[i].neutral[j]);
                     }
 
 
                     sentenceList.push(
                         {
-                            "Id":catId,
+                            "Id": catId,
                             "sentences": sentences
                         }
-
                     );
                 }
 
@@ -155,7 +160,7 @@ $("#analyze").click(function () {
 
             for (var i = 0; i < sentenceList.length; i++) {
 
-                if (id==sentenceList[i].Id){
+                if (id == sentenceList[i].Id) {
 
                     text += sentenceList[i].sentences;
                 }
@@ -169,7 +174,7 @@ $("#analyze").click(function () {
 
         });
 
-    });
+    //});
 
 });
 
@@ -211,8 +216,8 @@ function getCategoryDescription(id) {
         }
     ];
 
-    for(var i=0;i<categories.length;i++){
-        if(categories[i].category == id){
+    for (var i = 0; i < categories.length; i++) {
+        if (categories[i].category == id) {
             description = categories[i].description;
             break;
         }
@@ -222,3 +227,27 @@ function getCategoryDescription(id) {
 }
 
 
+function loadScore() {
+    var scoreData = localStorage.getItem("scoreDB");
+
+    if (scoreData) {
+        console.log("found in local storage!");
+    }
+    else {
+
+        console.log('No results locally, make a ajax call...');
+
+        $.getJSON("http://people.ischool.berkeley.edu/~jun.luo/capstone/All_scores.json", function (data) {
+        //$.getJSON("http://localhost:8000/All_scores.json", function (data) {
+            var localData = JSON.stringify(data);
+
+            console.log("before " + localData.length);
+            var localDataCompressed = LZString.compress(localData);
+            console.log("after " + localDataCompressed.length);
+
+            localStorage.setItem("scoreDB", localDataCompressed);
+            console.log("set local scoreDB " + localDataCompressed.length);
+        });
+    }
+
+}

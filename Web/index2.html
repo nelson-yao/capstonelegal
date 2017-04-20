@@ -74,8 +74,7 @@
                 <div class="intro-caption">
                     <h1>Mission Statement</h1>
                     <h2>Provide a service that allows Internet users to quickly and clearly understand a website’s data
-                        practices.
-                    </h2>
+                        practices.</h2>
                 </div>
             </div>
         </div>
@@ -137,242 +136,204 @@
                 </div>
             </div>
 
-
             <div class="row">
-                <div class="col-md-6">
-                    <img src="images/solution.png"/>
-                </div>
-
-
-                <div class="col-md-6">
-                    <p> transparent.ly is based on data collected by a collaborative group at Carnegie Mellon
-                        University, Fordham University, and Stanford University, led by Prof. Norman Sadeh. Trained
-                        analysts created detailed annotations for 115 privacy policies <a
-                                href="https://www.usableprivacy.org/data">(OPP-115)</a>. The team at transparent.ly used
-                        this data to create a machine learning model that can read and interpret new privacy policies
-                        and present the user with a simple letter grade score.
+                <div class="col-md-12">
+                    <p> Transparent.ly is based on research from a group at Carnegie Mellon University, Fordham
+                        University, and Stanford University in which trained analysts created detailed annotations for
+                        115 privacy policies. Researchers at UC Berkeley used this data to create a machine learning
+                        model that can read and interpret new privacy policies and present the user with a simple letter
+                        grade score.
                     </p>
                 </div>
             </div>
             <br>
-            <!--            Section about data -->
+
             <div class="row">
-                <div class="col-md-12">
-                    <div class="section-heading">
-                        <h3>Data Description</h3>
-                        <div class="sec-line"></div>
-                    </div>
+                <div class="col-md-16">
+                    <p> Transparent.ly is based on research from a group at Carnegie Mellon University, Fordham
+                        University, and Stanford University in which trained analysts created detailed annotations for
+                        115 privacy policies. Researchers at UC Berkeley used this data to create a machine learning
+                        model that can read and interpret new privacy policies and present the user with a simple letter
+                        grade score.
+                    </p>
                 </div>
             </div>
-
+            <br>
 
             <div class="row">
-
                 <div class="col-md-6">
-                    <p> To make the training data, researchers at CMU recruited law students to annotate all of the
-                        privacy policies in the training dataset on 10 different categories of data privacy
-                        practices: </p>
-                    <ol type="1">
-                        <li>First Party Collection/Use</li>
-                        <li>Third Party Sharing/Collection</li>
-                        <li>User Choice/Control</li>
-                        <li>User Access, Edit, and Deletion</li>
-                        <li>Data Retention</li>
-                        <li>Data Security</li>
-                        <li>Policy Change</li>
-                        <li>Do Not Track</li>
-                        <li>International & Specific Audiences: practices that pertain only to a specific group of users
+                    <h4>Model Developing </h4>
+                    <p>To make the training data, researchers at CMU recruited law students to annotate all of the
+                        privacy policies in the training dataset on 10 different categories of data privacy practices:
+                    </p>
+
+                    <ol>
+                        <li class="anno">First Party Collection/Use: how and why a service provider collects user
+                            information.
+                        </li>
+                        <li class="anno">Third Party Sharing/Collection: how user in-formation may be shared with or
+                            collected by
+                            third parties.
+                        </li>
+                        <li class="anno">User Choice/Control: choices and control options available to users.</li>
+                        <li class="anno">User Access, Edit, and Deletion: if and how users may access, edit, or delete
+                            their
+                            information.
+                        </li>
+                        <li class="anno">Data Retention: how long user information is stored.</li>
+                        <li class="anno">Data Security: how user information is protected.</li>
+                        <li class="anno">Policy Change: if and how users will be informed about changes to the privacy
+                            policy.
+                        </li>
+                        <li class="anno">Do Not Track: if and how Do Not Track signals for online tracking and
+                            advertising are
+                            honored.
+                        </li>
+                        <li class="anno">International & Specific Audiences: practices that pertain only to a specific
+                            group of users
                             (e.g., children, Europeans, or California residents).
                         </li>
-                        <li>Other: additional sub-labels for introductory or general text, contact information, and
+                        <li class="anno">Other: additional sub-labels for introductory or general text, contact
+                            information, and
                             practices not covered by the other categories.
                         </li>
                     </ol>
+
+
+                </div>
+                <div class="col-md-6">
+                    <img src="images/annotation.png" style="padding-bottom: 10px"/>
+
                     <p>Each category also contains multiple subtopics. Annotators looked for snippets of texts in each
                         documents that describe the website's practices regarding each of the topics, and characterized
-                        the practice with a label. </p>
-                    <p>Based on the text snippets and labels, each sentence in the documents is assigned a label
-                        regarding a data practice topic. If the sentence describes several data practices, the sentence
-                        will have multiple labels. For each label, we assign a score to indicate whether the data
-                        practice described by the label is good (helps protect the user’s privacy) bad (detrimental to
-                        user’s privacy), or neutral (simply describing some information). At the end, for each sentence
-                        we have the category of data practice the sentence is describing (maybe more than one) and the
-                        score(s) of the sentence with respect to that category. </p>
-                </div>
-
-                <div class="col-md-6">
-
-                    <img src="images/Annotation.png"/>
-                    <p> A screenshot of the tool used by CMU researchers to annotate privacy policy documents</p>
-                    <p>Source : Wilson et al, 2016 </p>
-                </div>
-
-            </div>
-            <br>
-
-            <!--            Section about modeling -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-heading">
-                        <h3>Modeling</h3>
-                        <div class="sec-line"></div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Sentence Selection using Random Forest </h3>
-                    <p>We developed two set of models. The first set consists of 10 independent random forest models,
-                        one for each data practice category. Each model is responsible for choosing sentences that are
-                        relevant to the corresponding data practice category. The second sets of models contain one
-                        convolutional neural network (CNN) model for each of the categories, each model takes sentences
-                        that are relevant to the category, and model the connection between the contents of the sentence
-                        and the score they were assigned.
+                        the practice with a label.
                     </p>
                 </div>
-
-
-                <div class="col-md-6">
-
-                    <table class="table table-bordered" style="background-color: #fff">
-                        <tr>
-                            <th>Category</th>
-                            <th>Accuracy</th>
-                        </tr>
-                        <tr>
-                            <td>Data Retention</td>
-                            <td>0.9734</td>
-                        </tr>
-                        <tr>
-                            <td>Data Security</td>
-                            <td>0.9379</td>
-                        </tr>
-                        <tr>
-                            <td>Do Not Track</td>
-                            <td>0.9961</td>
-                        </tr>
-                        <tr>
-                            <td>First Party Collection/Use</td>
-                            <td>0.7901</td>
-                        </tr>
-                        <tr>
-                            <td>International and Specific Audiences</td>
-                            <td>0.9522</td>
-                        </tr>
-                        <tr>
-                            <td>Policy Change</td>
-                            <td>0.9745</td>
-                        </tr>
-                        <tr>
-                            <td>Third Party Sharing/Collection</td>
-                            <td>0.8394</td>
-                        </tr>
-                        <tr>
-                            <td>User Access, Edit and Deletion</td>
-                            <td>0.9561</td>
-                        </tr>
-                        <tr>
-                            <td>User Choice/Control</td>
-                            <td>0.8812</td>
-                        </tr>
-
-                    </table>
-                </div>
             </div>
-
             <br>
 
-
             <div class="row">
-
-                <div class="col-md-6">
+                <div class="col-md-12">
+                    <p>Based on the text snippets and labels, each sentence in the documents get a label regarding one
+                        or more data practice categories. For each sentence, we assign a score to indicate whether the
+                        data practice is good, bad, or neutral (simply describing some information), with respect to a
+                        certain category, if the sentence originally had a label for that category. At the end, for each
+                        sentence we have the category of data practice the sentence is describing (maybe more than one)
+                        and the score(s) of the sentence with respect to that category.
+                    </p>
+                    <p>We developed two set of models. The first set of models consisted of 10 independent random forest
+                        models, one for each data practice category. Each model is responsible for choosing sentences
+                        that are relevant to the corresponding data practice category. The second sets of models contain
+                        one convolutional neural network (CNN) model for each of the categories, each model takes
+                        sentences that are relevant to the category, and model the connection between the contents of
+                        the sentence and the score they were assigned.
+                    </p>
+                </div>
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
 
                     <table class="table table-bordered" style="background-color: #fff">
                         <tr>
+                            <th rowspan="2">Category</th>
                             <th>Category</th>
+                            <th colspan="3" style="text-align:center;">CNN</th>
+                        </tr>
+                        <tr>
+
+                            <th>Accuracy</th>
                             <th>Precision</th>
                             <th>Recall</th>
                             <th>Development f1</th>
                         </tr>
+
                         <tr>
                             <td>First Party Collection/Use</td>
-                            <td>0.872639</td>
-                            <td>0.892086</td>
-                            <td>0.892086</td>
+                            <td class="accuracy">0.7901</td>
+                            <td class="accuracy">0.8726</td>
+                            <td class="accuracy">0.8921</td>
+                            <td class="accuracy">0.8921</td>
                         </tr>
 
                         <tr>
                             <td>Data Retention</td>
-                            <td>0.792339</td>
-                            <td>0.777778</td>
-                            <td>0.777778</td>
+                            <td class="accuracy">0.9734</td>
+                            <td class="accuracy">0.7923</td>
+                            <td class="accuracy">0.7778</td>
+                            <td class="accuracy">0.7778</td>
                         </tr>
                         <tr>
                             <td>Data Security</td>
-                            <td>0.7670818</td>
-                            <td>0.795276</td>
-                            <td>0.795276</td>
+                            <td class="accuracy">0.9379</td>
+                            <td class="accuracy">0.7671</td>
+                            <td class="accuracy">0.7953</td>
+                            <td class="accuracy">0.7953</td>
                         </tr>
                         <tr>
                             <td>Do Not Track</td>
-                            <td>0.604938</td>
-                            <td>0.777778</td>
-                            <td>0.777778</td>
+                            <td class="accuracy">0.9961</td>
+                            <td class="accuracy">0.6049</td>
+                            <td class="accuracy">0.7778</td>
+                            <td class="accuracy">0.7778</td>
                         </tr>
                         <tr>
                             <td>User Choice/Control</td>
-                            <td>0.922787</td>
-                            <td>0.955446</td>
-                            <td>0.955446</td>
+                            <td class="accuracy">0.8812</td>
+                            <td class="accuracy">0.9228</td>
+                            <td class="accuracy">0.9554</td>
+                            <td class="accuracy">0.9554</td>
                         </tr>
                         <tr>
                             <td>User Access, Edit and Deletion</td>
-                            <td>0.871164</td>
-                            <td>0.868852</td>
-                            <td>0.868852</td>
+                            <td class="accuracy">0.9561</td>
+                            <td class="accuracy">0.8712</td>
+                            <td class="accuracy">0.8689</td>
+                            <td class="accuracy">0.8689</td>
                         </tr>
 
                     </table>
                 </div>
-
-
-                <div class="col-md-6">
-                    <h3>Sentence scoring using Convolutional Neural Network</h3>
-
-                    <p>Each input to the CNN model is a sentence, and each word in the sentence is converted to a
-                        pre-trained <a href="https://nlp.stanford.edu/projects/glove/">GloVe embedding</a> of 60
-                        dimensions. Then three separate convolution filters with different window sizes move along the
-                        sentence one word at a time to gather information that are embedded in word orders and regions.
-                        The features generated from each convolution are put under max-pooling, concatenated, and sent
-                        into a feed-forward neural network with one hidden-layer and dropout units. We trained 10 CNN
-                        models, one for each data practice category. The size of the training data ranges from 6000
-                        sentences to almost 10000 sentences for each category. 6 of these CNN models yielded
-                        satisfactory result on development dataset. </p>
+                <div class="col-md-2">
                 </div>
 
             </div>
             <br>
 
-            <!--            Section about model serving -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-heading">
-                        <h2>Serving</h3>
-                            <div class="sec-line"></div>
-                    </div>
+                    <h4>Convolutional Neural Net </h4>
+                    <p>Each input to the CNN model is a sentence, and each word in the sentence is converted a GloVe
+                        embedding of 60 dimensions (https://nlp.stanford.edu/projects/glove/) . Then three separate
+                        convolution filters with different window sizes move along the sentence one word at a time to
+                        gather information that are embedded in word orders and regions. The features generated from
+                        each convolution are put under max-pooling, concatenated, and sent into a feed-forward neural
+                        network with one hidden-layer and dropout units. </p>
+                    <p>We trained 10 CNN models, one for each data practice category. The size of the training data
+                        ranges from 6000 sentences to almost 10000 sentences for each category. 8 of these CNN models
+                        yielded satisfactory result on development dataset. </p>
+                    <img src="images/cnn-graph.png">
                 </div>
             </div>
-            <div class="col-md-12">
-                <p>
-                    For each of the unlabeled privacy policy document, we calculate the scores for each of data practice
-                    categories. For each category, we first pick the relevant sentences from the documents using the
-                    corresponding random forest model. Using these sentences, we generate the scores for each sentence
-                    using the corresponding CNN model for that category. We then combined the scores from the relevant
-                    sentences to a generate summary score for each category. The scores from each category are then
-                    combined to generate a final letter grade that describe the entire document.
-                </p>
+            <br>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Model serving</h4>
+                    <p>For each of the unlabeled privacy policy document, we calculate the scores for each of data
+                        practice categories. For each category, we first pick the relevant sentences from the documents
+                        using the corresponding random forest model. Using these sentences, we generate the scores for
+                        each sentence using the corresponding CNN model for that category. We then combined the scores
+                        from the relevant sentences to a generate summary score for each category. The scores from each
+                        category are then combined to generate a final letter grade that describe the entire
+                        document. </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="images/solution.png">
+                </div>
+
             </div>
+
+
         </div>
     </div>
     <!--  container end -->
@@ -540,13 +501,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="footer-content text-center">
-                    <h4 class="wow fadeInUp">&copy; copyright reserved to MIDS210.2017</h4>
+                    <h4 class="wow fadeInUp">&copy; copyright reserved to Transparent.ly 2017</h4>
                 </div>
             </div>
-        </div>
-        <!-- row end  -->
-    </div>
-    <!-- container end  -->
+        </div><!-- row end  -->
+    </div><!-- container end  -->
 </section>
 <!--  Footer end  -->
 

@@ -303,7 +303,7 @@ h6 {
 /*==================== section heading ========================*/
 
 .section-heading {
-	margin-bottom: 70px;
+	margin-bottom: 30px;
 }
 
 .host-intro{
@@ -321,7 +321,7 @@ h6 {
 }
 
 .section-padding {
-	padding: 90px 0px;
+	padding: 90px 0px 0px 0px;
 }
 
 .section-heading p {
