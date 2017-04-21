@@ -29,8 +29,8 @@ div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWi
 }
 
 div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.titleContainer div.title div.productName {
-    font-size: 17px;
-    font-weight: bold
+    font-size: 24px;
+    /*font-weight: bold*/
 }
 
 div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.titleContainer div.title div.segment span.label {
@@ -560,7 +560,7 @@ div.mainContent div.scoringWidget table.scoringPane table.awardAndScore {
 }
 
 div.mainContent div.scoringWidget table.scoringPane table.awardAndScore td {
-    padding: 20px 0;
+    padding: 10px 0;
     text-align: center;
     width: 50%
 }
@@ -595,7 +595,6 @@ div.mainContent div.scoringWidget table.scoringPane table.awardAndScore tr.noAwa
 div.mainContent div.scoringWidget table.scoringPane table.awardAndScore tr.noAward td.score {
     width: 100%
 }
-
 
 div.mainContent div.scoringWidget table.scoringPane table.awardAndScore div.overallScore div.box {
     background-color: rgba(0, 0, 0, 0.25);
@@ -855,6 +854,22 @@ body.light div.mainContent div.scoringWidget table.scoringPane div.summary {
     color: #222
 }
 
+body.light div.mainContent div.scoringWidget table.scoringPane tr.summary:first-child td {
+    background-color: #296B94;
+    color: #fff;
+    border: 0;
+    font-size: 17px;
+    /*font-weight: bold;*/
+}
+
+div.overallscore {
+    background-color: #296B94;
+    color: #fff;
+    border: 0;
+    font-size: 24px;
+    font-weight: normal !important;
+}
+
 body.light div.mainContent div.scoringWidget table.scoringPane tr.summary:last-child td {
     background-color: #296B94;
     color: #fff;
@@ -865,4 +880,27 @@ body.light div.mainContent div.scoringWidget table.scoringPane tr.summary:last-c
 
 body.light div.mainContent div.scoringWidget table.scoringPane tr.summary:last-child > td {
     border-top: 1px solid #fff
+}
+
+#analyze {
+    color: #fff;
+    background-color: #296B94;
+    border-color: #296B94;
+}
+
+#sentences {
+    margin-top: 15px;
+    overflow-y: auto;
+    height: 540px;
+    background-color: #fff;
+    padding: 10px;
+    border: solid 1px #dddddd;
+    border-radius: 5px;
+
+}
+
+#categoryExplanation {
+    padding: 10px;
+    background-color: #F1F1F1;
+    color: black;
 }

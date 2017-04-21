@@ -5,9 +5,11 @@
 $(document).ready(function () {
 
     $("#scoringWidget").hide();
-    $("#categoryExplaination").empty();
+    $("#categoryExplanation").empty();
     $("#sentences").empty();
+    $("#sentences").hide();
 
+    //Press enter to search
     $("#url").keypress(function (e) {
         if (e.which == 13) {
             //prevent refreshing page when ENTER is pressed
@@ -17,6 +19,7 @@ $(document).ready(function () {
         }
     });
 
+    //Load score DB to local storage if it had not been loaded
     loadScore();
 
 });
@@ -27,152 +30,154 @@ $("#analyze").click(function () {
     $(this).blur();
 
     $("#scoringWidget").hide();
+
     var url = $("#url").val().toLowerCase();
-
-
     var data = JSON.parse(LZString.decompress(localStorage.getItem("scoreDB")));
 
     //$.getJSON("http://people.ischool.berkeley.edu/~jun.luo/capstone/All_scores.json", function (data) {
     //$.getJSON("http://localhost:8000/All_scores.json", function (data) {
 
-        var sentenceList = [];
+    var sentenceList = [];
 
-        $.each(data, function (key, val) {
-            //console.log(key, val)
+    $.each(data, function (key, val) {
+        //console.log(key, val)
 
-            var site = val.site.toLowerCase();
-            if (site.indexOf(url) >= 0) {
-                //console.log("found " + val.score);
-                $("div.labels").empty();
-                $("div.bars").empty();
+        var site = val.site.toLowerCase();
 
-                var siteTitle = val.site + " Privacy Policy Score:";
-                $(".productName").text(siteTitle);
+        if (site.indexOf(url) >= 0) {
+            //console.log("found " + val.score);
+            $("div.labels").empty();
+            $("div.bars").empty();
 
-                var categories = val.categories;
+            $(".productName").text(val.site.toUpperCase());
 
-                for (var i = 0; i < categories.length; i++) {
-                    //console.log("cat: " + categories[i].category +  " score: " + categories[i].score);
+            var categories = val.categories;
 
+            for (var i = 0; i < categories.length; i++) {
 
-                    var category = categories[i].category;
-                    var score = parseFloat(categories[i].score);
-                    var colorClass = "";
-                    var sentences = "";
+                //console.log("cat: " + categories[i].category +  " score: " + categories[i].score);
 
-                    if (score >= 0.9) {
-                        colorClass = "scoreGreen";
-                    }
-                    else if (score >= 0.75 && score < 0.9) {
-                        colorClass = "scoreYellow";
-                    }
-                    else {
-                        colorClass = "scoreRed";
-                    }
+                var category = categories[i].category;
+                var score = parseFloat(categories[i].score);
+                var colorClass = "";
+                var sentences = "";
 
-                    $("div.labels").append("<div class=\"sclabel\">" + category + "</div>");
-
-                    var catId = category.replace(/\W/g, '').toLowerCase();
-
-                    var barText = "<div class=\"bar\" id=\"" + catId + "\"><div class=\"segments\">";
-                    var barLength = Math.round(280 * parseFloat(score));
-                    //console.log(barLength + "px");
-
-                    barText += "<div class=\"segment " + colorClass + "\" style=\"width: " + barLength + "px\"></div>";
-                    barText += "</div></div>";
-                    $("div.bars").append(barText);
-
-
-                    for (var j = 0; j < categories[i].bad.length; j++) {
-                        sentences += "<li class=\"red\">" + categories[i].bad[j] + "</li>";
-                        //console.log(categories[i].bad[j]);
-                    }
-                    for (var j = 0; j < categories[i].good.length; j++) {
-                        sentences += "<li class=\"green\">" + categories[i].good[j] + "</li>";
-                        //console.log(categories[i].good[j]);
-                    }
-                    for (var j = 0; j < categories[i].neutral.length; j++) {
-                        sentences += "<li class=\"neutral\">" + categories[i].neutral[j] + "</li>";
-                        //console.log(categories[i].neutral[j]);
-                    }
-
-
-                    sentenceList.push(
-                        {
-                            "Id": catId,
-                            "sentences": sentences
-                        }
-                    );
+                if (score >= 0.75) {
+                    colorClass = "scoreGreen";
+                }
+                else if (score >= 0.5 && score < 0.75) {
+                    colorClass = "scoreYellow";
+                }
+                else {
+                    colorClass = "scoreRed";
                 }
 
-                $("div.score").text(val.score);
-                $("#scoringWidget").slideDown(600);
+                $("div.labels").append("<div class=\"sclabel\">" + category + "</div>");
+
+                var catId = category.replace(/\W/g, '').toLowerCase();
+
+                var barText = "<div class=\"bar\" id=\"" + catId + "\"><div class=\"segments\">";
+                var barLength = Math.round(280 * parseFloat(score));
+                //console.log(barLength + "px");
+
+                barText += "<div class=\"segment " + colorClass + "\" style=\"width: " + barLength + "px\"></div>";
+                barText += "</div></div>";
+                $("div.bars").append(barText);
+
+
+                for (var j = 0; j < categories[i].bad.length; j++) {
+                    sentences += "<li class=\"red\">" + categories[i].bad[j] + "</li>";
+                    //console.log(categories[i].bad[j]);
+                }
+                for (var j = 0; j < categories[i].good.length; j++) {
+                    sentences += "<li class=\"green\">" + categories[i].good[j] + "</li>";
+                    //console.log(categories[i].good[j]);
+                }
+                for (var j = 0; j < categories[i].neutral.length; j++) {
+                    sentences += "<li class=\"neutral\">" + categories[i].neutral[j] + "</li>";
+                    //console.log(categories[i].neutral[j]);
+                }
+
+                sentenceList.push(
+                    {
+                        "Id": catId,
+                        "sentences": sentences
+                    }
+                );
             }
+
+            $("div.score").text(val.score);
+            $("#scoringWidget").slideDown(600);
+
+            //break out of $.each loop once a matching site is found
+            return false;
+        }
+    });
+
+
+    $("div.bar").mouseenter(function () {
+        //Reset all div.bar styles
+        $("div.bar").css({
+            "background-color": "#dddddd",
+            "border": "solid 0px red",
+            "border-bottom": "dotted 1px white"
+        });
+        $("#sentences").empty();
+        $("#sentences").hide();
+
+
+        //Highlight current car
+        $(this).css({
+            "cursor": "pointer",
+            "background-color": "white",
+            "border": "solid 1px red"
         });
 
+        $("#categoryExplanation").empty();
+        var id = $(this).attr("id");
+        var text = getCategoryDescription(id);
 
-        $("div.bar").mouseenter(function () {
-            //Reset all div.bar styles
-            $("div.bar").css({
+        $("#categoryExplanation").append(text);
+
+        $("div.bar").mouseleave(function () {
+            $(this).css({
+                "cursor": "pointer",
                 "background-color": "#dddddd",
                 "border": "solid 0px red",
                 "border-bottom": "dotted 1px white"
             });
+
+            $("#categoryExplanation").empty();
             $("#sentences").empty();
-
-
-            //Highlight current car
-            $(this).css({
-                "cursor": "pointer",
-                "background-color": "white",
-                "border": "solid 1px red"
-            });
-
-            $("#categoryExplaination").empty();
-            var id = $(this).attr("id");
-            var text = getCategoryDescription(id);
-
-            $("#categoryExplaination").append(text);
-
-            $("div.bar").mouseleave(function () {
-                $(this).css({
-                    "cursor": "pointer",
-                    "background-color": "#dddddd",
-                    "border": "solid 0px red",
-                    "border-bottom": "dotted 1px white"
-                });
-
-                $("#categoryExplaination").empty();
-                $("#sentences").empty();
-
-            });
+            $("#sentences").hide();
 
 
         });
 
 
-        $("div.bar").click(function () {
+    });
 
-            var id = $(this).attr("id");
 
-            $("#sentences").empty();
-            var text = "<ul>";
+    $("div.bar").click(function () {
 
-            for (var i = 0; i < sentenceList.length; i++) {
+        var id = $(this).attr("id");
 
-                if (id == sentenceList[i].Id) {
+        $("#sentences").empty();
+        $("#sentences").slideDown();
 
-                    text += sentenceList[i].sentences;
-                }
+        var text = "<ul>";
+        for (var i = 0; i < sentenceList.length; i++) {
+            if (id == sentenceList[i].Id) {
+                text += sentenceList[i].sentences;
             }
+        }
+        text += "</ul>";
 
-            text += "</ul>";
+        $("#sentences").append(text);
 
-            $("#sentences").append(text);
+        $("div.bar").off("mouseleave");
 
-            $("div.bar").off("mouseleave");
-
-        });
+    });
 
     //});
 
@@ -229,25 +234,48 @@ function getCategoryDescription(id) {
 
 function loadScore() {
     var scoreData = localStorage.getItem("scoreDB");
+    var scoredSites = [];
 
     if (scoreData) {
-        console.log("found in local storage!");
+        //console.log("found in local storage!");
+
+        //Get the list of sites and add "autocomplete" to the search box
+        var data = JSON.parse(LZString.decompress(scoreData));
+        $.each(data, function (k, v) {
+            scoredSites.push(v.site);
+        });
+
     }
     else {
 
-        console.log('No results locally, make a ajax call...');
+        var jsonUrl = location.href + "All_scores.json";
+        //console.log(jsonUrl);
+        //console.log('No results locally, make a ajax call...');
 
-        $.getJSON("http://people.ischool.berkeley.edu/~jun.luo/capstone/All_scores.json", function (data) {
-        //$.getJSON("http://localhost:8000/All_scores.json", function (data) {
+        //$.getJSON("http://people.ischool.berkeley.edu/~jun.luo/capstone/All_scores.json", function (data) {
+        $.getJSON(jsonUrl, function (data) {
+
+            $.each(data, function (k, v) {
+                scoredSites.push(v.site);
+            });
+
+
             var localData = JSON.stringify(data);
 
-            console.log("before " + localData.length);
+            //console.log("before " + localData.length);
+            //var t_start = new Date().getTime();
+
             var localDataCompressed = LZString.compress(localData);
-            console.log("after " + localDataCompressed.length);
+            //console.log("after " + localDataCompressed.length);
+            //var t_end = new Date().getTime();
+            //console.log("compression time " + (t_end-t_start));
 
             localStorage.setItem("scoreDB", localDataCompressed);
-            console.log("set local scoreDB " + localDataCompressed.length);
+            //console.log("set local scoreDB " + localDataCompressed.length);
         });
     }
 
+    $("#url").autocomplete({
+        source: scoredSites
+    });
 }

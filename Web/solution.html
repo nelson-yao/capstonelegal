@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MIDS 210 - Capstone - Transparent.ly</title>
+    <!-- MAIN CSS FILES===================================
+    ======================================================= -->
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+
+    <!-- Scorecard CSS -->
+    <!--<link rel="stylesheet" href="css/ReviewScoring.css">-->
+    <link rel="stylesheet" href="css/Common.css">
+    <link rel="stylesheet" href="css/capstone.css">
+
+    <!-- Layout and nav CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/line-icons.min.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="light noTouch" onload=' location.href="#section-profile-solution" '>
+
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top navbar-main">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"><i
+                    class="fa fa-bars"></i></button>
+            <a class="navbar-brand page-scroll" href="index.html#page-top">
+                <!--<img src="images/keyboard.jpeg" alt="" class="img-responsive">-->
+                <h2 style="color: #fff; text-decoration: underline">TRANSPARENT.LY</h2>
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li class="page-scroll"><a href="index.html#common-intro" class="page-scroll">Back</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<!-- navbar end -->
+
+<!-- section -banner -->
+<div id="common-intro" class="profile-bg">
+    <div class="parallx-overlay white"></div>
+   <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="intro-caption">
+                </div>
+            </div>
+        </div>
+        &lt;!&ndash; row end &ndash;&gt;
+    </div>
+    <!-- container end -->
+</div>
+<!-- section banner end -->
+
+
+
+<!--  section services start -->
+<section id="section-profile-solution" class="section-padding overlay2">
+    <div class="service-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>Solution</h2>
+                        <div class="sec-line"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/solution.png"/>
+                </div>
+
+
+                <div class="col-md-6">
+                    <p> Transparent.ly is based on data collected by a collaborative group at Carnegie Mellon
+                        University, Fordham University, and Stanford University, led by Prof. Norman Sadeh. Trained
+                        analysts created detailed annotations for 115 privacy policies <a
+                                href="https://www.usableprivacy.org/data">(OPP-115)</a>. The team at transparent.ly used
+                        this data to create a machine learning model that can read and interpret new privacy policies
+                        and present the user with a simple letter grade score.
+                    </p>
+                </div>
+            </div>
+            <br>
+            <!--            Section about data -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h3>Data Description</h3>
+                        <div class="sec-line"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <p> To make the training data, researchers at CMU recruited law students to annotate all of the
+                        privacy policies in the training dataset on 10 different categories of data privacy
+                        practices: </p>
+                    <ol type="1">
+                        <li class="anno">First Party Collection/Use</li>
+                        <li class="anno">Third Party Sharing/Collection</li>
+                        <li class="anno">User Choice/Control</li>
+                        <li class="anno">User Access, Edit, and Deletion</li>
+                        <li class="anno">Data Retention</li>
+                        <li class="anno">Data Security</li>
+                        <li class="anno">Policy Change</li>
+                        <li class="anno">Do Not Track</li>
+                        <li class="anno">International & Specific Audiences: practices that pertain only to a specific group of users
+                            (e.g., children, Europeans, or California residents).
+                        </li>
+                        <li class="anno">Other: additional sub-labels for introductory or general text, contact information, and
+                            practices not covered by the other categories.
+                        </li>
+                    </ol>
+                    <p>Each category also contains multiple subtopics. Annotators looked for snippets of texts in each
+                        documents that describe the website's practices regarding each of the topics, and characterized
+                        the practice with a label. </p>
+                    <p>Based on the text snippets and labels, each sentence in the documents is assigned a label
+                        regarding a data practice topic. If the sentence describes several data practices, the sentence
+                        will have multiple labels. For each label, we assign a score to indicate whether the data
+                        practice described by the label is good (helps protect the user’s privacy) bad (detrimental to
+                        user’s privacy), or neutral (simply describing some information). At the end, for each sentence
+                        we have the category of data practice the sentence is describing (maybe more than one) and the
+                        score(s) of the sentence with respect to that category. </p>
+                </div>
+
+                <div class="col-md-6">
+
+                    <img src="images/annotation.png"/>
+                    <p> A screenshot of the tool used by CMU researchers to annotate privacy policy documents</p>
+                    <p>Source : Wilson et al, 2016 </p>
+                </div>
+
+            </div>
+            <br>
+
+            <!--            Section about modeling -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h3>Modeling</h3>
+                        <div class="sec-line"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Sentence Selection using Random Forest </h3>
+                    <p>We developed two set of models. The first set consists of 10 independent random forest models,
+                        one for each data practice category. Each model is responsible for choosing sentences that are
+                        relevant to the corresponding data practice category. The second sets of models contain one
+                        convolutional neural network (CNN) model for each of the categories, each model takes sentences
+                        that are relevant to the category, and model the connection between the contents of the sentence
+                        and the score they were assigned.
+                    </p>
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <table class="table table-bordered" style="background-color: #fff">
+                        <tr>
+                            <th>Category</th>
+                            <th>Accuracy</th>
+                        </tr>
+                        <tr>
+                            <td>Data Retention</td>
+                            <td>0.9734</td>
+                        </tr>
+                        <tr>
+                            <td>Data Security</td>
+                            <td>0.9379</td>
+                        </tr>
+                        <tr>
+                            <td>Do Not Track</td>
+                            <td>0.9961</td>
+                        </tr>
+                        <tr>
+                            <td>First Party Collection/Use</td>
+                            <td>0.7901</td>
+                        </tr>
+                        <tr>
+                            <td>International and Specific Audiences</td>
+                            <td>0.9522</td>
+                        </tr>
+                        <tr>
+                            <td>Policy Change</td>
+                            <td>0.9745</td>
+                        </tr>
+                        <tr>
+                            <td>Third Party Sharing/Collection</td>
+                            <td>0.8394</td>
+                        </tr>
+                        <tr>
+                            <td>User Access, Edit and Deletion</td>
+                            <td>0.9561</td>
+                        </tr>
+                        <tr>
+                            <td>User Choice/Control</td>
+                            <td>0.8812</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+            <br>
+
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <table class="table table-bordered" style="background-color: #fff">
+                        <tr>
+                            <th>Category</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>Development f1</th>
+                        </tr>
+                        <tr>
+                            <td>First Party Collection/Use</td>
+                            <td>0.872639</td>
+                            <td>0.892086</td>
+                            <td>0.892086</td>
+                        </tr>
+
+                        <tr>
+                            <td>Data Retention</td>
+                            <td>0.792339</td>
+                            <td>0.777778</td>
+                            <td>0.777778</td>
+                        </tr>
+                        <tr>
+                            <td>Data Security</td>
+                            <td>0.7670818</td>
+                            <td>0.795276</td>
+                            <td>0.795276</td>
+                        </tr>
+                        <tr>
+                            <td>Do Not Track</td>
+                            <td>0.604938</td>
+                            <td>0.777778</td>
+                            <td>0.777778</td>
+                        </tr>
+                        <tr>
+                            <td>User Choice/Control</td>
+                            <td>0.922787</td>
+                            <td>0.955446</td>
+                            <td>0.955446</td>
+                        </tr>
+                        <tr>
+                            <td>User Access, Edit and Deletion</td>
+                            <td>0.871164</td>
+                            <td>0.868852</td>
+                            <td>0.868852</td>
+                        </tr>
+
+                    </table>
+                </div>
+
+
+                <div class="col-md-6">
+                    <h3>Sentence scoring using Convolutional Neural Network</h3>
+
+                    <p>Each input to the CNN model is a sentence, and each word in the sentence is converted to a
+                        pre-trained <a href="https://nlp.stanford.edu/projects/glove/">GloVe embedding</a> of 60
+                        dimensions. Then three separate convolution filters with different window sizes move along the
+                        sentence one word at a time to gather information that are embedded in word orders and regions.
+                        The features generated from each convolution are put under max-pooling, concatenated, and sent
+                        into a feed-forward neural network with one hidden-layer and dropout units. We trained 10 CNN
+                        models, one for each data practice category. The size of the training data ranges from 6000
+                        sentences to almost 10000 sentences for each category. 6 of these CNN models yielded
+                        satisfactory result on development dataset. </p>
+                </div>
+
+            </div>
+            <br>
+
+            <!--            Section about model serving -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h3>Serving</h3>
+                        <div class="sec-line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <p>
+                    For each of the unlabeled privacy policy document, we calculate the scores for each of data practice
+                    categories. For each category, we first pick the relevant sentences from the documents using the
+                    corresponding random forest model. Using these sentences, we generate the scores for each sentence
+                    using the corresponding CNN model for that category. We then combined the scores from the relevant
+                    sentences to a generate summary score for each category. The scores from each category are then
+                    combined to generate a final letter grade that describe the entire document.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--  container end -->
+</section>
+<!--  section services end -->
+
+
+<!--  Footer start  -->
+<section id="profile-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="footer-content text-center">
+                    <h4 class="wow fadeInUp">&copy; copyright reserved 2017 Transparent.ly</h4>
+                </div>
+            </div>
+        </div>
+        <!-- row end  -->
+    </div>
+    <!-- container end  -->
+</section>
+<!--  Footer end  -->
+
+
+<!-- jQuery is required -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!--<script src="js/jquery-ui.min.js"></script>-->
+
+<!-- Plugin JavaScript -->
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/wow.min.js"></script>
+<!--<script src="js/lz-string.min.js"></script>-->
+<!-- Custom Theme JavaScript -->
+<script src="js/theme.js"></script>
+<!--<script src="js/scorecard.js"></script>-->
+
+</body>
+
+</html>
