@@ -1,0 +1,910 @@
+div.mainContent div.scoringWidget {
+    width: 340px;
+    margin: 1em auto
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader {
+    background-image: url("../images/reviews/scoring/top-bg-middle.png?v=3960");
+    background-repeat: repeat-x
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader div.left {
+    background-image: url("../images/reviews/scoring/top-bg-left.png?v=3960");
+    background-repeat: no-repeat;
+    background-position: left top
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader div.right {
+    background-image: url("../images/reviews/scoring/top-bg-right.png?v=3960");
+    background-repeat: no-repeat;
+    background-position: right top
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent {
+    /*width: 560px*/
+    width: 340px
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.titleContainer div.title {
+    padding: 10px 15px
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.titleContainer div.title div.productName {
+    font-size: 24px;
+    /*font-weight: bold*/
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.titleContainer div.title div.segment span.label {
+    font-size: 13px
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.titleContainer div.title div.segment span.label {
+    color: #888
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.compareToggleButtonContainer {
+    padding-right: 15px;
+    padding-bottom: 10px;
+    vertical-align: bottom
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.compareToggleButtonContainer div.label {
+    text-align: right;
+    padding-bottom: 2px;
+    font-size: 12px;
+    color: #aaa
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.compareToggleButtonContainer div.toggleButton {
+    margin-left: auto;
+    margin-right: 0;
+    width: 40px;
+    right: 0
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.compareToggleButtonContainer div.sliderBackground {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 1px 2px;
+    position: relative;
+    height: 19px
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.compareToggleButtonContainer div.sliderKnob {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    margin: 2px;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    transition-property: right;
+    transition-duration: .25s
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.compareToggleButtonContainer div.sliderKnob.on {
+    right: 0
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent {
+    /*width: 560px*/
+    width: 340px
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader div.sandboxedScoringWidgetHeaderContent {
+    padding: 10px 15px
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader div.sandboxedScoringWidgetHeaderContent div.title {
+    font-size: 17px;
+    font-weight: bold
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetHeader div.sandboxedScoringWidgetHeaderContent div.subitle {
+    color: #888
+}
+
+div.mainContent div.scoringWidget div.scoringWidgetTools {
+    border-top: #000;
+    background-color: #222
+}
+
+div.mainContent div.regularScoringWidget div.scoringWidgetTools div.compareModeHelp {
+    background-color: #FC0
+}
+
+div.mainContent div.regularScoringWidget div.scoringWidgetTools div.compareModeHelp div.text {
+    padding: 5px 15px;
+    color: #222
+}
+
+div.mainContent div.scoringWidget table.productList {
+    border-collapse: collapse;
+    width: 100%
+}
+
+div.mainContent div.scoringWidget table.productList td {
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td {
+    cursor: pointer
+}
+
+div.mainContent div.scoringWidget table.productList tr.flash1 td {
+    background-color: #2b2b2b
+}
+
+div.mainContent div.scoringWidget table.productList tr.flash2 td {
+    background-color: #333
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.name {
+    padding: 5px 10px 5px 15px
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.review {
+    width: 1%;
+    white-space: nowrap;
+    padding: 5px 10px 5px 18px;
+    background-image: url("../images/reviews/scoring/camera-more-link-icon.png?v=3960");
+    background-position: left center;
+    background-repeat: no-repeat
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.review a {
+    color: #fc0
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.review span.date {
+    color: #888
+}
+
+div.mainContent div.scoringWidget table.productList tr.product.selected td.review {
+    background-image: url("../images/reviews/scoring/camera-more-link-icon-active.png?v=3960")
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.overallScoreLabel {
+    width: 1%;
+    white-space: nowrap;
+    color: #888;
+    padding-right: 5px
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.overallScore {
+    width: 1%;
+    white-space: nowrap;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px 10px 5px 0
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.remove {
+    display: none;
+    width: 1%;
+    padding: 5px 5px 5px 10px
+}
+
+div.mainContent div.scoringWidget table.productList.hasRemovableProducts tr.product td.remove {
+    display: table-cell
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.remove div {
+    margin: 1px;
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    background-image: url("../images/icons-small/trashbin.png?v=3960");
+    background-repeat: no-repeat
+}
+
+div.mainContent div.scoringWidget table.productList tr.product:first-child td.remove div {
+    display: none
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.grip {
+    display: none;
+    width: 1%;
+    padding: 5px 10px 5px 0
+}
+
+div.mainContent div.scoringWidget table.productList.hasSortableProducts tr.product td.grip {
+    display: table-cell
+}
+
+div.mainContent div.scoringWidget table.productList tr.product td.grip div {
+    width: 12px;
+    height: 12px;
+    overflow: hidden
+}
+
+div.mainContent div.scoringWidget table.productList tr.product.sortable td.grip div {
+    cursor: move;
+    background-image: url("../images/reviews/scoring/camera-sort-grip.png?v=3960");
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+div.mainContent div.scoringWidget table.productList tr.product.sortable.selected td.grip div {
+    background-image: url("../images/reviews/scoring/camera-sort-grip-active.png?v=3960")
+}
+
+div.mainContent div.scoringWidget table.productList tr.product.selected td {
+    background-color: #444
+}
+
+div.mainContent div.scoringWidget table.productList tr.product.selected.flash1 td {
+    background-color: #585858
+}
+
+div.mainContent div.scoringWidget table.productList tr.product.selected.flash2 td {
+    background-color: #636363
+}
+
+div.mainContent div.scoringWidget table.productList tr.loading td.label {
+    padding: 5px 15px 5px 35px;
+    background-image: url("../images/ajax-loader-selftimer-222.gif?v=3960");
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    color: #aaa
+}
+
+div.mainContent div.scoringWidget table.productList tr.loading td.overallScore {
+    width: 1%;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 10px 5px 0
+}
+
+div.mainContent div.scoringWidget table.productList tr.loading td.overallScore span {
+    visibility: hidden
+}
+
+div.mainContent div.regularScoringWidget div.productPicker {
+    padding: 10px
+}
+
+div.mainContent div.regularScoringWidget div.productPicker div.allCategoriesToolip {
+    cursor: help;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    background-image: url("../images/reviews/scoring/help-icon.png?v=3960");
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+div.mainContent div.scoringWidgetIntro {
+    background-color: #444;
+    background-image: url("../images/reviews/scoring/intro-top.png?v=3960");
+    background-repeat: no-repeat;
+    background-position: center top
+}
+
+div.mainContent div.scoringWidgetIntro div.bottomLeft {
+    background-image: url("../images/reviews/scoring/intro-left-bottom.png?v=3960");
+    background-repeat: no-repeat;
+    background-position: left bottom
+}
+
+div.mainContent div.scoringWidgetIntro div.bottomRight {
+    background-image: url("../images/reviews/scoring/intro-right-bottom.png?v=3960");
+    background-repeat: no-repeat;
+    background-position: right bottom
+}
+
+div.mainContent div.scoringWidgetIntro div.arrowAndText {
+    background-image: url("../images/reviews/scoring/intro-arrow.png?v=3960");
+    background-repeat: no-repeat;
+    background-position: center 25px;
+    text-align: center;
+    padding: 100px 20px 120px 20px;
+    font-size: 17px;
+    color: #aaa
+}
+
+div.mainContent div.sandboxedScoringWidget table.scoringPane {
+    display: none
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables td.left {
+    vertical-align: top;
+    width: 205px;
+    background-image: url("../images/reviews/scoring/main-bg-left.png?v=3960");
+    background-repeat: no-repeat
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables td.right {
+    vertical-align: top;
+    /*width: 170px;*/
+    background-image: url("../images/reviews/scoring/main-bg-right.png?v=3960");
+    background-repeat: no-repeat
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.currentCameraName {
+    display: none
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.labels {
+    padding-top: 25px
+}
+
+div.mainContent div.scoringWidget table.scoringPane.compareMode tr.variables div.labels {
+    padding-top: 52px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.labels div.sclabel {
+    padding: 7px 15px;
+    line-height: 12px;
+    text-align: right;
+    border-top: 1px solid #333;
+    transition: 250ms;
+    color: black;
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.labels div.label.hidden {
+    display: none
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.labels div.label.excluded {
+    color: #777
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.labels div.label:first-child {
+    border-top-style: none
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.currentCameraName {
+    display: none
+}
+
+div.mainContent div.scoringWidget table.scoringPane.compareMode tr.variables div.currentCameraName {
+    padding: 5px 10px 10px 15px;
+    font-weight: bold;
+    overflow: hidden;
+    line-height: 12px;
+    display: block
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars {
+    padding-top: 5px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.scale {
+    height: 20px;
+    width: 120px;
+    margin-left: 15px;
+    position: relative;
+    background-image: url("../images/reviews/scoring/bar-scale.png?v=3960");
+    background-position: 2px bottom;
+    background-repeat: repeat-x;
+    color: #888
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.scale span.labelPoor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 12px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.scale span.labelExcellent {
+    position: absolute;
+    top: 0;
+    left: 85px;
+    line-height: 12px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 15px;
+    border-top: 1px dotted #333;
+    position: relative;
+    width: 125px;
+    height: 27px;
+    background-image: url("../images/score-bar-bg.png?v=3960");
+    background-repeat: no-repeat;
+    background-position: 15px 8px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar.hidden {
+    display: none
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar:first-child {
+    border-top-style: none
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments {
+    position: absolute;
+    top: 9px;
+    left: 17px;
+    /*width: 280px;*/
+    width: 110px;
+    height: 10px;
+    overflow: hidden
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment {
+    position: absolute;
+    top: 0;
+    height: 10px;
+    background-repeat: no-repeat;
+    overflow: hidden
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.ticks {
+    position: absolute;
+    top: 5px;
+    left: 17px;
+    width: 260px;
+    height: 10px;
+    display: none
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.ticks div.tick {
+    border-top: 4px solid #fff;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    margin-left: -4px;
+    margin-top: -1px;
+    position: absolute
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.score {
+    background-image: url("/images/score-bar-bars-baseline.png?v=3960");
+
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.diffMinus {
+    background-image: url("../images/reviews/scoring/score-bar-bars-diff-minus.png?v=3960")
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.diffPlus {
+    background-image: url("../images/reviews/scoring/score-bar-bars-diff-plus.png?v=3960")
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.summary td {
+    background-color: #333;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.summary:last-child td {
+    background-color: #134F69;
+    border: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.summary:last-child > td {
+    border-top: 1px solid #444
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.summary div.shadow {
+    background-image: url("../images/reviews/scoring/bottom-bg-shade.png?v=3960");
+    background-repeat: repeat-x
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.summary div.conclusion {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 15px 15px 10px 15px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.summary div.summary {
+    color: #f0f0f0;
+    margin: 10px 15px 20px 15px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.goodForNotSoGoodFor > td {
+    background-color: #333;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #222;
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.goodForNotSoGoodFor td {
+    vertical-align: top
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.goodForNotSoGoodFor table > tbody > tr > td {
+    width: 50%
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.suitability td.left {
+    background-image: url("../images/reviews/scoring/main-bg-left.png?v=3960");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    border-top: 1px solid #333
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.suitability td.right {
+    background-image: url("../images/reviews/scoring/main-bg-right.png?v=3960");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    border-top: 1px dotted #333
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.suitability div.label {
+    background-position: 0 5px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 0 15px 50px;
+    position: relative
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.suitability.goodFor div.label {
+    background-image: url("../images/reviews/scoring/thumb-up.png?v=3960");
+    margin-left: 15px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.suitability.goodFor div.text {
+    color: #f0f0f0;
+    margin: -5px 15px 15px 65px
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.suitability.notGoodFor div.label {
+    background-image: url("../images/reviews/scoring/thumb-down.png?v=3960")
+}
+
+div.mainContent div.scoringWidget table.scoringPane tr.suitability.notGoodFor div.text {
+    color: #f0f0f0;
+    margin: -5px 15px 15px 50px
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore {
+    width: 100%
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore td {
+    padding: 10px 0;
+    text-align: center;
+    width: 50%
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore span.award {
+    background-size: 150px 115px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 0 auto;
+    width: 150px;
+    height: 115px
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore span.award.silver {
+    background-image: url("../images/award-silver-dark.png?v=3960")
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore span.award.gold {
+    background-image: url("../images/award-gold-dark.png?v=3960")
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore tr.noAward td.award {
+    width: 0;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore tr.noAward td.award span {
+    display: none
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore tr.noAward td.score {
+    width: 100%
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore div.overallScore div.box {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: inline-block;
+    width: 80px;
+    /*padding: 10px;*/
+    text-align: center;
+    margin-left: 40px;
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore div.overallScore div.box div.label {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px
+}
+
+div.mainContent div.scoringWidget table.scoringPane table.awardAndScore div.overallScore div.box div.score {
+    font-size: 36px;
+    font-weight: bold;
+    padding: 10px 5px 5px 5px;
+}
+
+body.light div.mainContent div.scoringWidget {
+    color: #fff
+}
+
+body.light div.mainContent div.scoringWidget div.scoringWidgetHeader {
+    background: #296B94;
+    border-bottom: 1px solid #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px
+}
+
+body.light div.mainContent div.scoringWidget div.scoringWidgetHeader div.left {
+    background: 0
+}
+
+body.light div.mainContent div.scoringWidget div.scoringWidgetHeader div.right {
+    background: 0
+}
+
+body.light div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.titleContainer div.title div.segment span.label {
+    color: #fff
+}
+
+body.light div.mainContent div.scoringWidget div.scoringWidgetHeader table.regularScoringWidgetHeaderContent td.compareToggleButtonContainer div.label {
+    color: #fff
+}
+
+body.light div.mainContent div.scoringWidget div.scoringWidgetHeader div.sandboxedScoringWidgetHeaderContent div.subitle {
+    color: #888
+}
+
+body.light div.mainContent div.scoringWidget div.scoringWidgetTools {
+    background-color: #ccc;
+    border-bottom: 1px solid #fff;
+    color: #222
+}
+
+body.light div.mainContent div.regularScoringWidget div.scoringWidgetTools div.compareModeHelp {
+    background-color: #FC0
+}
+
+body.light div.mainContent div.regularScoringWidget div.scoringWidgetTools div.compareModeHelp div.text {
+    color: #222;
+    font-size: 13px
+}
+
+body.light div.mainContent div.scoringWidget table.productList td {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.flash1 td {
+    background-color: #d4d4d4
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.flash2 td {
+    background-color: #ddd
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.product td.name {
+    color: #444;
+    font-weight: bold
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.product td.review a {
+    color: #222
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.product td.review span.date {
+    color: #666
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.product td.overallScoreLabel {
+    color: #666
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.product td.overallScore {
+    color: #444
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.product.selected td {
+    background-color: #eee
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.product.selected.flash1 td {
+    background-color: #e4e4e4
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.product.selected.flash2 td {
+    background-color: #eee
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.loading td.label {
+    background-image: url("../images/ajax-loader-selftimer-ccc.gif?v=3960");
+    color: #666
+}
+
+body.light div.mainContent div.scoringWidgetIntro {
+    background: #444
+}
+
+body.light div.mainContent div.scoringWidgetIntro div.bottomLeft {
+    background: #444
+}
+
+body.light div.mainContent div.scoringWidgetIntro div.bottomRight {
+    background: #444
+}
+
+body.light div.mainContent div.scoringWidget table.productList tr.product td.remove div {
+    background-image: url("../images/icons-small/trashbin-dark.png?v=3960")
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables td.left {
+    background: #eee
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables td.right {
+    background: #ddd
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.labels div.sclabel {
+    border-top: 1px solid #fff;
+    color: #222;
+    font-size: 12px
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.labels div.label.excluded {
+    color: #777
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.labels div.sclabel:first-child {
+    border-top-style: none
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.scale {
+    color: #444;
+    background: 0
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.scale span.labelPoor, body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.scale span.labelExcellent {
+    font-size: 13px;
+    top: 5px
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar {
+    border-top: 1px dotted #fff;
+    background-image: none
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar:first-child {
+    border-top-style: none
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments {
+    background-color: #bbb;
+    border-radius: 3px
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment {
+    border-radius: 3px;
+    border: 1px solid #999;
+    height: 8px
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.scoreGreen {
+    /*background: #5EB344;*/
+    background: #03FC16;
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.scoreYellow {
+    /*background: #5EB344;*/
+    background: #F9F605;
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.scoreRed {
+    /*background: #5EB344;*/
+    background: #EF1705;
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.diffMinus {
+    background: #ddd;
+    border-radius: 0 3px 3px 0;
+    padding-right: 1px
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.diffPlus {
+    background: #E4B600;
+    border-radius: 0 3px 3px 0
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.ticks div.tick {
+    border-top: 4px solid #666
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.goodForNotSoGoodFor > td {
+    background-color: #ddd;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
+    color: #222
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.goodForNotSoGoodFor div.text {
+    color: #222
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.goodForNotSoGoodFor td {
+    position: relative
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.goodForNotSoGoodFor span.circleBackground {
+    background-color: rgba(256, 256, 256, 0.75);
+    border-radius: 20px;
+    display: inline-block;
+    height: 40px;
+    left: 15px;
+    margin-top: 5px;
+    position: absolute;
+    width: 40px
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.goodForNotSoGoodFor tr.notGoodFor span.circleBackground {
+    left: 0
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.summary td {
+    background-color: #ddd;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
+    color: #222
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane div.summary {
+    font-weight: normal;
+    color: #222
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.summary:first-child td {
+    background-color: #296B94;
+    color: #fff;
+    border: 0;
+    font-size: 17px;
+    /*font-weight: bold;*/
+}
+
+div.overallscore {
+    background-color: #296B94;
+    color: #fff;
+    border: 0;
+    font-size: 16px;
+    font-weight: normal !important;
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.summary:last-child td {
+    background-color: #296B94;
+    color: #fff;
+    border: 0;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+body.light div.mainContent div.scoringWidget table.scoringPane tr.summary:last-child > td {
+    border-top: 1px solid #fff
+}
+
+#analyze {
+    color: #fff;
+    background-color: #296B94;
+    border-color: #296B94;
+}
+
+#sentences {
+    margin-top: 15px;
+    overflow-y: auto;
+    height: 540px;
+    background-color: #fff;
+    padding: 10px;
+    border: solid 1px #dddddd;
+    border-radius: 5px;
+
+}
+
+#categoryExplanation {
+    padding: 10px;
+    background-color: #F1F1F1;
+    color: black;
+}

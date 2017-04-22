@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Transparent.ly Demo",
+  "description": "Chrome extension for Transparent.ly",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "doc.png",
+    "default_popup": "extension.html"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}

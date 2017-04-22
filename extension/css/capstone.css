@@ -1,0 +1,23 @@
+li.red{
+    color: red;
+    margin-bottom: 15px;
+}
+
+li.green{
+    color:#088A29;
+    margin-bottom: 15px;
+}
+
+li.neutral{
+    color: black;
+    margin-bottom: 15px;
+}
+
+td.accuracy{
+    text-align: right;
+}
+
+li.anno
+{
+    list-style-type: decimal;
+}
