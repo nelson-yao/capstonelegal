@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         url = url.toLocaleLowerCase();
 
         var xhr = new XMLHttpRequest;
-        xhr.open("GET", chrome.runtime.getURL("all_scores.json"));
+        xhr.open("GET", chrome.runtime.getURL("all_scores.json"), false);
 
         xhr.onreadystatechange = function () {
             if (this.readyState == 4) {
@@ -121,8 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
 
                         $("div.score").text(val.score);
-                        // $("div.container").css("padding-left","14px");
-                        // $("div.container").css("padding-right","14px");
+
                         //$("#scoringWidget").slideDown(600);
 
                         break;
