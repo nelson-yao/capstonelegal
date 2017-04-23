@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         //renderStatus('Current URL is ' + url);
         var msg = "";
+        var sentenceList = [];
 
         url = url.toLocaleLowerCase();
 
@@ -81,6 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         $("div.labels").empty();
                         $("div.bars").empty();
+                        $("#detail").slideUp();
+                        $("#sentences").hide();
 
                         $(".productName").text(val.site.toUpperCase());
 
@@ -93,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             var category = categories[i].category;
                             var score = parseFloat(categories[i].score);
                             var colorClass = "";
+                            var sentences = "";
 
 
                             if (score >= 0.75) {
@@ -118,11 +122,34 @@ document.addEventListener('DOMContentLoaded', function () {
                             $("div.bars").append(barText);
 
                             //msg += category + "\n";
+                            for (var j = 0; j < categories[i].bad.length; j++) {
+                                sentences += "<li class=\"red\">" + categories[i].bad[j] + "</li>";
+                                //console.log(categories[i].bad[j]);
+                            }
+                            for (var j = 0; j < categories[i].good.length; j++) {
+                                sentences += "<li class=\"green\">" + categories[i].good[j] + "</li>";
+                                //console.log(categories[i].good[j]);
+                            }
+                            for (var j = 0; j < categories[i].neutral.length; j++) {
+                                sentences += "<li class=\"neutral\">" + categories[i].neutral[j] + "</li>";
+                                //console.log(categories[i].neutral[j]);
+                            }
+
+                            sentenceList.push(
+                                {
+                                    "Id": catId,
+                                    "sentences": sentences
+                                }
+                            );
+
                         }
 
                         $("div.score").text(val.score);
 
                         //$("#scoringWidget").slideDown(600);
+
+                        $("html").height(320);
+                        $("body").height(320);
 
                         break;
                     }
@@ -132,6 +159,73 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 //renderStatus(msg);
+
+                $("div.bar").mouseenter(function () {
+                    //Reset all div.bar styles
+                    $("div.bar").css({
+                        "background-color": "#dddddd",
+                        "border": "solid 0px red",
+                        "border-bottom": "dotted 1px white"
+                    });
+                    //$("#sentences").empty();
+                    //$("#sentences").hide();
+
+
+                    //Highlight current car
+                    $(this).css({
+                        "cursor": "pointer",
+                        "background-color": "white",
+                        "border": "solid 1px red"
+                    });
+
+                    $("#categoryExplanation").empty();
+                    var id = $(this).attr("id");
+                    var text = getCategoryDescription(id);
+
+                    $("#categoryExplanation").append(text);
+
+                    $("div.bar").mouseleave(function () {
+                        $(this).css({
+                            "cursor": "pointer",
+                            "background-color": "#dddddd",
+                            "border": "solid 0px red",
+                            "border-bottom": "dotted 1px white"
+                        });
+
+                        $("#categoryExplanation").empty();
+                        $("#sentences").empty();
+                        $("#sentences").hide();
+
+
+                    });
+
+
+                });
+
+
+                $("div.bar").click(function () {
+
+                    var id = $(this).attr("id");
+
+                    $("#sentences").empty();
+                    $("#sentences").show();
+                    //$("#sentences").slideDown();
+                    $("#detail").slideDown();
+
+                    var text = "<ul>";
+                    for (var i = 0; i < sentenceList.length; i++) {
+                        if (id == sentenceList[i].Id) {
+                            text += sentenceList[i].sentences;
+                        }
+                    }
+                    text += "</ul>";
+
+                    $("#sentences").append(text);
+
+                    $("div.bar").off("mouseleave");
+
+                });
+
             }
         };
 
@@ -141,3 +235,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+
+
+function getCategoryDescription(id) {
+
+    var description = "";
+    var categories = [
+        {
+            "category": "firstpartycollectionuse",
+            "description": "First Party Collection/Use"
+        },
+        {
+            "category": "userchoicecontrol",
+            "description": "User Choice/Control"
+        },
+        {
+            "category": "useraccesseditanddeletion",
+            "description": "User Access, Edit and Deletion"
+        },
+        {
+            "category": "dataretention",
+            "description": "Data Retention"
+        },
+        {
+            "category": "datasecurity",
+            "description": "Data Security"
+        },
+        {
+            "category": "donottrack",
+            "description": "Do Not Track"
+        },
+        {
+            "category": "internationalandspecificaudiences",
+            "description": "Specific audiences mentioned in the company/organization’s privacy policy, such as children or international users, for which the company/organization may provide special provisions."
+        },
+        {
+            "category": "other",
+            "description": "Aspects not covered in the other categories."
+        }
+    ];
+
+    for (var i = 0; i < categories.length; i++) {
+        if (categories[i].category == id) {
+            description = categories[i].description;
+            break;
+        }
+    }
+
+    return description;
+}
+

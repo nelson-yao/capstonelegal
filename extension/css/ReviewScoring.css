@@ -893,18 +893,20 @@ body.light div.mainContent div.scoringWidget table.scoringPane tr.summary:last-c
 }
 
 #sentences {
-    margin-top: 15px;
+    margin-top: 5px;
     overflow-y: auto;
-    height: 540px;
+    height: 200px;
     background-color: #fff;
-    padding: 10px;
+    padding: 5px;
     border: solid 1px #dddddd;
     border-radius: 5px;
 
 }
 
 #categoryExplanation {
-    padding: 10px;
+    /*padding: 10px;*/
     background-color: #F1F1F1;
     color: black;
+    font-weight: bold;
+    height: 10px;
 }
