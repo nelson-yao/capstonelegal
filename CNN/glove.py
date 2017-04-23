@@ -1,23 +1,21 @@
+#!/home/nyao/tfpy2/bin/python
+
 ##  WORD EMBEDDINGS - GloVe
 #  Generates a word embedding based on the pretrained corpora
-#     Nov, 2016
-
+#     Mar, 2017
 
 import numpy as np
-from gensim.parsing.preprocessing import STOPWORDS
-
+from nltk.corpus import stopwords
 from os.path import abspath
 from glob import glob
 
 
-# Obtain the absolute path to the corpora folder
-__path = abspath('.')
-__pos = __path.index('MIDS-W266-Final-MSY')
-PATH_TO_CORPORA = __path[:__pos + 19] + '/data/geom_corpora/'  # len('MIDS-W266-Final-MSY') --> 19
-
 
 def list_corpora():
     """Lists the corpora available"""
+    __path = abspath('.')
+    __pos = __path.index('MIDS-W266-Final-MSY')
+    PATH_TO_CORPORA = __path[:__pos + 19] + '/data/geom_corpora/'
     non_zips = filter( lambda x: not (x.endswith('.zip') or x.endswith('.gz') or x.endswith('.md')), glob(PATH_TO_CORPORA + '*') )
     return map(lambda x: x.split('/')[-1], non_zips)
 
@@ -25,12 +23,11 @@ def list_corpora():
 class GloVe(object):
     """Trained object of `GloVe<http://nlp.stanford.edu/projects/glove/>`_ using the `stanfordnlp-trained datasets<http://nlp.stanford.edu/data/wordvecs/>`_"""
 
-    PATH_TO_CORPORA = PATH_TO_CORPORA
 
     def __init__(self, file_name):
-        self.vocab = self.load_model(self.PATH_TO_CORPORA + file_name)
+        self.vocab = self.load_model(file_name)
         self.n_dim = self.__getitem__( 'a' ).shape[0]
-
+        self.STOPWORDS=stopwords.words('english')
 
     def load_model(self, file_name):
         """Loads a given GloVe model"""
@@ -48,7 +45,7 @@ class GloVe(object):
         try:
             representation = self.vocab[item]
         except KeyError:
-            representation = self.vocab['<unk>']
+            representation = np.zeros(self.n_dim)
         finally:
             return representation
 
@@ -57,7 +54,7 @@ class GloVe(object):
         representation = 0.
 
         # Get list of `uncommon` words
-        words = [ w for w in sentence.lower().split() if w not in STOPWORDS ]
+        words = [ w for w in sentence.lower().split() if w not in self.STOPWORDS ]
 
         if words:
             for w in words:

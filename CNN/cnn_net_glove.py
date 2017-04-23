@@ -8,13 +8,13 @@ class CNN(object):
     """
     def __init__(
       self, sequence_length, num_classes, vocab_size,
-      embedding_size, filter_sizes, num_filters, l2_reg_lambda=0.0):
+      embedding_size, filter_sizes, num_filters, embed_trainable=False, l2_reg_lambda=0.0):
 
         # Placeholders for input, output and dropout
         self.input_x = tf.placeholder(tf.int32, [None, sequence_length], name="input_x")
         self.input_y = tf.placeholder(tf.float32, [None, num_classes], name="input_y")
         self.dropout_keep_prob = tf.placeholder(tf.float32, name="dropout_keep_prob")
-
+        self.embed_trainable=embed_trainable
         #self.input_suprise = tf.placeholder(tf.float32, [None, 1], name="input_surprise")
 
         # L2 loss function
@@ -25,7 +25,7 @@ class CNN(object):
         with tf.name_scope("embedding"):
             W = tf.Variable(
                 tf.constant(0.0, shape=[vocab_size, embedding_size]),
-                name="Embedding_Weights", trainable=False)
+                name="Embedding_Weights", trainable=self.embed_trainable)
             self.embedding_placeholder=tf.placeholder(tf.float32, shape=[vocab_size, embedding_size])
             self.embedding_init=W.assign(self.embedding_placeholder)
             self.embedded_chars = tf.nn.embedding_lookup(W, self.input_x)
@@ -66,7 +66,7 @@ class CNN(object):
 #                     padding='VALID',
 #                     name="pool")
         
-#                 pooled_outputs.append(pooled)
+                pooled_outputs.append(pooled)
 
 
         num_filters_total = num_filters * len(filter_sizes) 

@@ -7,7 +7,6 @@ import os
 import time
 import datetime
 import data_helpers
-from text_cnn import TextCNN
 from tensorflow.contrib import learn
 from sklearn.metrics import f1_score
 from cnn_net_glove import CNN
@@ -16,6 +15,7 @@ from sklearn.metrics import average_precision_score
 import logging
 import json
 import sys
+from sklearn import metrics
 
 timestamp = str(int(time.time()))
 
@@ -35,8 +35,8 @@ parser.add_argument("--num-epochs", default=100, type=int, dest="num_epoch", hel
 parser.add_argument("--print-every", default=100, type=int, dest="print_every", help="Print after how many steps, default is 100")
 parser.add_argument("--save-every", default=500, type=int, dest="save_every", help="Save a checkpoint after every N steps, default is 500. A final checkpoint will also be saved after training is finished")
 parser.add_argument("--eval-every", default=500, type=int, dest="eval_every", help="Evalute the model after every N steps, default is 500")
-parser.add_argument("--descriptor", default="CNN", dest="descriptor", help="A short descriptor for the model, will be used in the performace records")
-
+parser.add_argument("--descriptor", default="CNN", dest="descriptor", help="A short descriptor for the model, will be used in the pace records")
+parser.add_argument("--embed-trainable", default=False,action="store_true", dest="trainable", help="use this flag to make the word embeddings trainable")
 
 
 args=parser.parse_args()
@@ -45,9 +45,9 @@ InputData=args.InputData
 Category=args.Category  # category to focus on
 train_proportion=args.train_proportion
 
-categoryCode={'Data Retention':"DR", 'Data Security':"DS", 
+categoryCode={'Data Retention':"DR", 'Data Security':"DS",
               'Do Not Track':"DNT", 'First Party Collection/Use':"FP", 'International and Specific Audiences':"INT",
-              'Not_used':"NU", 'Policy Change':"PC", 'Third Party Sharing/Collection':"TP", 
+              'Not_used':"NU", 'Policy Change':"PC", 'Third Party Sharing/Collection':"TP",
               'User Access, Edit and Deletion':"UA",'User Choice/Control':"UC"}
 
 #CNN  paramters
@@ -63,6 +63,7 @@ print_every=args.print_every
 save_every=args.save_every
 eval_every=args.eval_every
 
+trainable=args.trainable  # are embeddings trainable?
 # naming
 try:
     catCode=categoryCode[Category]
@@ -78,17 +79,17 @@ descriptor=args.descriptor
 if embeddingFile is None:
     print("No embedding file found, please enter the path")
     embeddingFile=input("Enter full path to embedding file : ")
-    
+
 out_dir = os.path.abspath(os.path.join(os.path.curdir, "runs", model_name))
 
 if not os.path.exists(out_dir):
     os.makedirs(out_dir)
-    
+
 logger = logging.getLogger(model_name)
 logger.setLevel(logging.DEBUG)
 fh = logging.FileHandler(os.path.join(out_dir, model_name+".log"))
 fh.setLevel(logging.DEBUG)
-ch = logging.StreamHandler()
+ch = logging.StreamHandler(sys.stdout)
 ch.setLevel(logging.INFO)
 formatter1 = logging.Formatter('%(asctime)s %(levelname)s : %(message)s')
 formatter2 = logging.Formatter('%(asctime)s %(levelname)s : %(message)s')
@@ -104,7 +105,7 @@ logger.info("Reading data from {}".format(InputData))
 logger.info("Training models to predict scores the category of \"{}\" ".format(Category))
 
 logger.info("Filter sizes : {}".format(FS))
-logger.info("Number of filtes : {}" .format(Num_F))
+logger.info("Number of filters : {}" .format(Num_F))
 logger.info("Dropout keep probability : {}" .format(dropout_keep_prob))
 logger.info("L2 regularization constant : {}" .format(L))
 logger.info("Batch size : {}" .format(batch_size))
@@ -113,10 +114,10 @@ logger.info("Number of epochs : {}".format(num_epoch))
 
 with open(InputData, 'rb') as f:
     data=cPickle.load(f)
-    
+
 ## Generate training data
 logger.info("Preparing data and embeddings")
-train_x, dev_x, train_y, dev_y, embeddings, processor=cnn_helpers.processGlove(data,Category , train_proportion, embeddingFile)
+train_x, dev_x, train_y, dev_y, embeddings, processor=cnn_helpers.processGlove(data,Category , train_proportion, embeddingFile, minscore=-1, maxscore=1)
 vocabsize=len(processor.vocabulary_)
 M=embeddings.shape[1]   # embedding size
 
@@ -124,12 +125,15 @@ logger.info("Embedding matrix shape : {}".format(embeddings.shape))
 logger.info("Vocabulary size : {}".format(vocabsize))
 logger.info("Training sample size : {}".format(train_x.shape[0]))
 logger.info("Development sample size : {}".format(dev_x.shape[0]))
+logger.info("Number of classes : {}".format(train_y.shape[1]))
+logger.info("Training Label Distribution : {}".format(list(np.sum(train_y, axis=0))))
 
-totalsteps=train_x.shape[0]*num_epoch/batch_size
+totalsteps=(int(train_x.shape[0]/batch_size)+1)*num_epoch
 
 processorfile=os.path.join(out_dir, model_name+"_vocab.pk")
+
 logger.info("Saving vocabulary processor to {}".format(processorfile))
-with open("processorfile", "wb") as fv:
+with open(processorfile, "wb") as fv:
     cPickle.dump(processor, fv)
 
 with tf.Graph().as_default():
@@ -143,27 +147,28 @@ with tf.Graph().as_default():
             embedding_size = M,
             filter_sizes = FS,
             num_filters = Num_F,
+            embed_trainable=trainable,
             l2_reg_lambda = L)
 
         # Define Training procedure
         global_step = tf.Variable(0, name="global_step", trainable=False)
-        
-        optimizer = tf.train.AdamOptimizer(1e-3) 
-        
+
+        optimizer = tf.train.AdamOptimizer(1e-3)
+
         # AdamOptimizer achieves much better results than Adadelta
         #optimizer = tf.train.AdadeltaOptimizer(0.001)
-        
+
         grads_and_vars = optimizer.compute_gradients(cnn.loss)
         train_op = optimizer.apply_gradients(grads_and_vars, global_step=global_step)
-        
+
         # Summaries for loss and accuracy
         loss_summary = tf.summary.scalar("loss", cnn.loss)
         acc_summary = tf.summary.scalar("accuracy", cnn.accuracy)
-        
+
         # Output directory for checkpoints and summaries
-        
+
         logger.info("Writing to {}\n".format(out_dir))
-       
+
         # Train Summaries
 
         train_summary_dir = os.path.join(out_dir, "summaries", "train")
@@ -176,12 +181,12 @@ with tf.Graph().as_default():
             os.makedirs(checkpoint_dir)
         init_op=tf.global_variables_initializer()
         saver = tf.train.Saver()
-        
+
         # Initialize all variables
         sess.run(init_op)
         # feed the embedding matrix
         sess.run(cnn.embedding_init, feed_dict={cnn.embedding_placeholder: embeddings})
-        
+
         def train_step(x_batch, y_batch, printevery, logger=logger):
             """
             A single training step
@@ -189,7 +194,7 @@ with tf.Graph().as_default():
             feed_dict = {
               cnn.input_x: x_batch,
               cnn.input_y: y_batch,
-              
+
               cnn.dropout_keep_prob: dropout_keep_prob
             }
             _, step,loss, accuracy = sess.run(
@@ -204,7 +209,7 @@ with tf.Graph().as_default():
             """
             Evaluates model on a dev set
             """
-        
+
             print("\nDev Set Evaluation:")
             feed_dict = {
               cnn.input_x: x_batch_dev,
@@ -214,58 +219,63 @@ with tf.Graph().as_default():
             step, loss, scores,prediction = sess.run(
                 [global_step, cnn.loss,cnn.xw_out, cnn.predictions],
                 feed_dict)
-            
-            f1=f1_score(y_batch_dev.argmax(axis=1), prediction, average='micro')
+            truth = y_batch_dev.argmax(axis=1)
+            f1=f1_score(truth, prediction, average='micro')
+            precision = metrics.precision_score(truth, prediction, average="weighted")
+            recall = metrics.recall_score(truth, prediction, average="weighted")
             time_str = datetime.datetime.now().isoformat()
-            logger.info("step {} / {}, loss {:g}, dev f1-score {}".format(step,int(totalsteps), loss, f1))
-            return f1
+            logger.info("step {} / {}, loss {:g}, dev precision: {}, recall: {},  f1-score: {}".format(step,int(totalsteps), loss, precision, recall, f1))
+            return precision, recall, f1
 
+        def save_performance(precision, recall, f1score, epochnum):
+            performance={}
+            performance["Embedding size"]=M
+            performance["Filter number"]=Num_F
+            performance["Filter sizes"]=",".join([str(x) for x in FS])
+            performance["Dropout keep probability"]=dropout_keep_prob
+            performance["Regularization"]=L
+            performance["Batch size"]=batch_size
+            performance["Development f1"]=f1score
+            performance["Model Type"]=descriptor
+            performance["Model Name"]=model_name
+            performance["Trainable Embedding"]=trainable
+            performance["Epoch Number"]=float("{:.1f}".format(epochnum))
+            performance["Category"]=Category
+            performance["Precision"] = precision
+            performance["Recall"] = recall
+            performancefile=os.path.join(out_dir, model_name+"_performance.json")
+            logger.info("Saving performances to {}".format(performancefile))
+            with open(performancefile, "w") as fp:
+                json.dump(performance, fp)
 
         # Generating batches
         batches = cnn_helpers.batch_iter(
             train_x, train_y, batch_size, num_epoch)
-        
+
         # Training executions
         devbatches=cnn_helpers.batch_iter(dev_x, dev_y, 100, 1)
         for batch in batches:
             x_batch, y_batch = zip(*batch)
             train_step(x_batch, y_batch, printevery=print_every)
-            
+
             current_step = tf.train.global_step(sess, global_step)
+            current_epoch=current_step*batch_size/train_x.shape[0]
             if current_step % eval_every == 0:
-                #log.write("\nDev Set Evaluation:\n")
-                dev_f1=dev_step(dev_x, dev_y)
-                
+                logger.info("Epoch Number : {}".format(current_epoch) )
+                dev_precision, dev_recall, dev_f1=dev_step(dev_x, dev_y)
+
             if current_step % save_every==0:
-                
+
                 logger.info("Saving checkpoint to {}/model_{}.ckpt".format(checkpoint_dir, current_step))
                 save_path = saver.save(sess, "{}/model{}.ckpt".format(checkpoint_dir, current_step))
-                
-                performance={}
-                performance["Embedding size"]=M
-                performance["Filter number"]=Num_F
-                performance["Filter sizes"]=",".join([str(x) for x in FS])
-                performance["Dropout keep probability"]=dropout_keep_prob
-                performance["Regularization"]=L
-                performance["Batch size"]=batch_size
-                performance["Development f1"]=dev_f1
-                performance["Model Type"]=descriptor
-                performance["Model Name"]=model_name
-                
-                performancefile=os.path.join(out_dir, model_name+"_performance.json")
-                logger.info("Saving performances to {}".format(performancefile))
-                with open(performancefile, "w") as fp:
-                    json.dump(performance, fp)
+                save_performance(dev_precision, dev_recall, dev_f1, current_epoch)
 
 
-                
-                
+        logger.info("Training finished")
         current_step = tf.train.global_step(sess, global_step)
-        dev_f1=dev_step(dev_x, dev_y)
+        current_epoch=current_step*batch_size/train_x.shape[0]
+        logger.info("Epoch Number : {}".format(int(current_epoch)) )
+        dev_precision, dev_recall, dev_f1=dev_step(dev_x, dev_y)
         logger.info("Saving checkpoint to {}/model_{}.ckpt".format(checkpoint_dir, current_step))
         save_path = saver.save(sess, "{}/model_{}.ckpt".format(checkpoint_dir, current_step))
-        
-        
-
-        with open(performancefile, "w") as fp:
-            json.dump(performance, fp)
+        save_performance(dev_precision, dev_recall, dev_f1, current_epoch)

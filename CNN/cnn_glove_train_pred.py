@@ -280,7 +280,7 @@ with tf.Graph().as_default():
         save_path = saver.save(sess, "{}/model_{}.ckpt".format(checkpoint_dir, current_step))
         save_performance(dev_precision, dev_recall, dev_f1, current_epoch)
 
-        logger.info("Scoring new sentences")
+        logger.info("Scoring new sentences for the category "+Category)
         with open("../Data/corpus_sentences_py2.pk", 'rb') as f:
             corpus_sent = cPickle.load(f)
         def getSetencesForCat(corpus, category):
@@ -289,7 +289,7 @@ with tf.Graph().as_default():
                 relevant_setences = collection[category]
                 sentences[website]=relevant_setences
             return sentences
-        relevantSents = getSetencesForCat(corpus_sent, 'User Access, Edit and Deletion')
+        relevantSents = getSetencesForCat(corpus_sent, Category)
         def pred_step(featurelist):
             feed_dict = {
               cnn.input_x: featurelist,
