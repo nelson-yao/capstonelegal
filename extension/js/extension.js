@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             var catId = category.replace(/\W/g, '').toLowerCase();
 
                             var barText = "<div class=\"bar\" id=\"" + catId + "\"><div class=\"segments\">";
-                            var barLength = Math.round(110 * parseFloat(score));
+                            var barLength = Math.round(125 * parseFloat(score));
                             //console.log(barLength + "px");
 
                             barText += "<div class=\"segment " + colorClass + "\" style=\"width: " + barLength + "px\"></div>";

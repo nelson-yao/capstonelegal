@@ -45,6 +45,7 @@ $("#analyze").click(function () {
         var site = val.site.toLowerCase();
 
         if (site.indexOf(url) >= 0) {
+
             //console.log("found " + val.score);
             $("div.labels").empty();
             $("div.bars").empty();
@@ -109,6 +110,10 @@ $("#analyze").click(function () {
             $("div.score").text(val.score);
             $("#scoringWidget").slideDown(600);
 
+            $("#sentences").empty();
+            $("#sentences").hide();
+            $("#categoryExplanation").empty();
+
             //break out of $.each loop once a matching site is found
             return false;
         }
@@ -159,6 +164,14 @@ $("#analyze").click(function () {
 
 
     $("div.bar").click(function () {
+
+
+        var demoRowClass = $("#demo-search").attr('class');
+        if(demoRowClass == "col-md-12"){
+            $("#demo-search").removeClass().addClass("col-md-6");
+            $("#demo-sentences").removeClass().addClass("col-md-6");
+        }
+
 
         var id = $(this).attr("id");
 
@@ -248,7 +261,7 @@ function loadScore() {
     }
     else {
 
-        var jsonUrl = location.href + "All_scores.json";
+        var jsonUrl = location.href + "all_scores.json";
         //console.log(jsonUrl);
         //console.log('No results locally, make a ajax call...');
 

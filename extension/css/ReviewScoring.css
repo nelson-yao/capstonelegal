@@ -375,7 +375,7 @@ div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBar
 div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.scale {
     height: 20px;
     width: 120px;
-    margin-left: 15px;
+    margin-left: 5px;
     position: relative;
     background-image: url("../images/reviews/scoring/bar-scale.png?v=3960");
     background-position: 2px bottom;
@@ -393,7 +393,7 @@ div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBar
 div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.scale span.labelExcellent {
     position: absolute;
     top: 0;
-    left: 85px;
+    left: 95px;
     line-height: 12px
 }
 
@@ -403,7 +403,7 @@ div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBar
     padding-left: 15px;
     border-top: 1px dotted #333;
     position: relative;
-    width: 125px;
+    width: 135px;
     height: 27px;
     background-image: url("../images/score-bar-bg.png?v=3960");
     background-repeat: no-repeat;
@@ -421,9 +421,9 @@ div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBar
 div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments {
     position: absolute;
     top: 9px;
-    left: 17px;
+    left: 5px;
     /*width: 280px;*/
-    width: 110px;
+    width: 125px;
     height: 10px;
     overflow: hidden
 }
@@ -783,7 +783,7 @@ body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.
 body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment {
     border-radius: 3px;
     border: 1px solid #999;
-    height: 8px
+    height: 10px
 }
 
 body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.scoreGreen {

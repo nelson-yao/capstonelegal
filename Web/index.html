@@ -141,9 +141,19 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    [NEED EDIT] Solution overview. We can put brief solution description covered by Chris here. Detail goes <a href="solution.html">How it works.</a>
-                </div>
+                    <p>[NEED EDIT] Solution overview. Use presentation script as place holder for now.
 
+                    transparent.ly is based on research from a group at Carnegie Mellon University, Fordham University, and Stanford University in which trained analysts - actually law students - created detailed annotations for 115 privacy policies.
+
+                    We used this data to create a machine learning model that can read and interpret new privacy policies.
+
+                    After training the model we applied it to a corpus of almost one thousand privacy policies, classifying each sentence into a category, and then scoring each sentence according to a model for that category.
+
+                    We present the score for each category and also an overall letter grade, providing users a simple way to quickly evaluate the privacy policies of the websites they visit.
+                    </p>
+
+                    <p>Detailed solution goes here:<a href="solution.html">How it works.</a></p>
+                </div>
 
 
             </div>
@@ -161,14 +171,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <h2>Demo</h2>
+                    <h2>Transparent.ly</h2>
                     <div class="sec-line"></div>
                 </div>
             </div>
         </div>
         <!-- .row -->
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row" style="height: 500px">
+            <div class="col-md-12" id="demo-search">
                 <div id="mainContent" class="mainContent">
                     <div class="scoringWidget regularScoringWidget">
                         <form>
@@ -178,13 +188,12 @@
                             <div class="input-group">
                                 <input type="text" id="url" class="form-control" placeholder="Enter site name...">
                                 <span class="input-group-btn">
-                    <button id="analyze" class="btn btn-primary" type="button">Analyze</button>
-                </span>
+                                    <button id="analyze" class="btn btn-primary" type="button">Analyze</button>
+                                </span>
                             </div>
                         </form>
                     </div>
                     <div class="scoringWidget regularScoringWidget" id="scoringWidget">
-
                         <div class="scoringWidgetHeader">
                             <div class="left">
                                 <div class="right">
@@ -252,12 +261,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12" id="demo-sentences">
                 <div>
                     <div id="sentences">
                     </div>
                 </div>
-
             </div>
             <!-- .col-md-12 -->
         </div>
@@ -289,13 +297,19 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <P>Nelson</P>
+                <img src="images/team-nelson.jpg" class="imageProfile">
+                <P>Xin Nelson Yao&nbsp;<a href="https://www.linkedin.com/in/nelsonyao" target="_blank"><img src="images/linkedin.png"></a></P>
+                <p>nelson.yao@ischool.berkeley.edu</p>
             </div>
             <div class="col-md-4">
-                <P>Chris</P>
+                <img src="images/team-chris.jpeg" class="imageProfile">
+                <P>Chris Murray&nbsp;<a href="https://www.linkedin.com/in/datasciguy" target="_blank"><img src="images/linkedin.png"></a></P>
+                <p>cjm@ischool.berkeley.edu</p>
             </div>
             <div class="col-md-4">
-                <P>Jun</P>
+                <img src="images/team-jun.jpg" class="imageProfile">
+                <P>Jun Luo&nbsp;<a href="https://www.linkedin.com/in/jun-luo-4b93999a" target="_blank"><img src="images/linkedin.png"></a></P>
+                <p>jun.luo@ischool.berkeley.edu</p>
             </div>
         </div>
         <!-- row end -->
