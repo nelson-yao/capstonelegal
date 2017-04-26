@@ -165,18 +165,15 @@ $("#analyze").click(function () {
 
     $("div.bar").click(function () {
 
-
         var demoRowClass = $("#demo-search").attr('class');
         if(demoRowClass == "col-md-12"){
             $("#demo-search").removeClass().addClass("col-md-6");
             $("#demo-sentences").removeClass().addClass("col-md-6");
         }
 
-
         var id = $(this).attr("id");
 
         $("#sentences").empty();
-        $("#sentences").slideDown();
 
         var text = "<ul>";
         for (var i = 0; i < sentenceList.length; i++) {
@@ -187,6 +184,7 @@ $("#analyze").click(function () {
         text += "</ul>";
 
         $("#sentences").append(text);
+        $("#sentences").slideDown(600);
 
         $("div.bar").off("mouseleave");
 

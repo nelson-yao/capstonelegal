@@ -779,7 +779,7 @@ body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.
 body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment {
     border-radius: 3px;
     border: 1px solid #999;
-    height: 8px
+    height: 10px
 }
 
 body.light div.mainContent div.scoringWidget table.scoringPane tr.variables div.scaleAndBars div.bars div.bar div.segments div.segment.scoreGreen {
